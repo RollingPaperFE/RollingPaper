@@ -1,3 +1,4 @@
+import Button from "./Button";
 import HomeBanner from "./HomeBanner";
 import bannersStyle from "./HomePage.module.css";
 
@@ -26,7 +27,7 @@ const HomePage = () => {
         <HomeBanner {...bannerList[1]} />
       </div>
       <div className={bannersStyle["btn-container"]}>
-        <button className={bannersStyle["btn"]}>구경해보기</button>
+        <Button className={bannersStyle["btn"]}>{"구경해보기"}</Button>
       </div>
     </div>
   );
