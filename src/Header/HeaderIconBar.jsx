@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import ShareImg from "../assets/Share.png";
+import ShareImg from "../assets/header_share_img.png";
 
 //1. name 을 전달받으면 해당 이름이 표시되도록 설정
 

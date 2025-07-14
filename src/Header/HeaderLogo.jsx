@@ -1,5 +1,5 @@
 import globalStyle from "../Header/global.module.css";
-import LogoImg from "../assets/LogoImg.png";
+import LogoImg from "../assets/header_logo_img.png";
 
 const HeaderLogo = () => {
   return (
