@@ -9,9 +9,28 @@
   font-size: 16px;
   position: relative;
   top: -4px;
-  margin-right: 170px; /* 왜 이렇게 해야하는지 모르겠음 ㅠㅠ */
+  /* margin-right: 170px; 왜 이렇게 해야하는지 모르겠음 ㅠㅠ */
 }
 
 .createButton:hover {
   background-color: #f2f2f2;
+}
+
+/* 태블릿 */
+
+@media (max-width: 768px) {
+  .createButton {
+    padding: 8px 16px;
+    /* margin-right: 16px; */
+  }
+}
+
+/* 모바일 */
+@media (max-width: 360px) {
+  .createButton {
+    padding: 12px 20px;
+    font-size: 14px;
+    gap: 10px;
+    margin-right: 16px;
+  }
 }
