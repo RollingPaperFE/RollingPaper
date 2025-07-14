@@ -1,6 +1,7 @@
 import globalStyle from "../../src/global.module.css";
 import headerButtonStyle from "./HeaderButton.module.css";
 import LogoImg from "../assets/LogoImg.png";
+import Button from "../assets/Button.jsx";
 
 const HeaderButton = () => {
   return (
@@ -10,9 +11,9 @@ const HeaderButton = () => {
         <span className={globalStyle.logoText}>Rolling</span>
       </div>
       <div>
-        <button className={headerButtonStyle.createButton}>
+        <Button className={headerButtonStyle.createButton}>
           롤링 페이퍼 만들기
-        </button>
+        </Button>
       </div>
     </header>
   );
