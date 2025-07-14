@@ -1,0 +1,17 @@
+.createButton {
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #cccccc;
+  padding: 8px 16px;
+  cursor: pointer;
+  width: 157px;
+  height: 40px;
+  font-size: 16px;
+  position: relative;
+  top: -4px;
+  margin-right: 170px; /* 왜 이렇게 해야하는지 모르겠음 ㅠㅠ */
+}
+
+.createButton:hover {
+  background-color: #f2f2f2;
+}
