@@ -25,6 +25,12 @@
   gap: 28px;
 }
 
+.divider {
+  width: 1px;
+  height: 28px;
+  background-color: #eeeeee;
+}
+
 .emojis {
   display: flex;
   gap: 10px;
@@ -40,25 +46,56 @@
   padding: 8px 12px;
 }
 
+.writersAvatar {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.writers {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.avatar {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 3px solid #fff;
+  margin-left: -12px;
+  z-index: 1;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
 .writersCount {
-  font-size: 18px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 3;
+  margin-left: -6px;
 }
 
 .writersPlus {
-  display: inline-block;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #ffffff;
-  border: 1px solid #e3e3e3;
-  border-radius: 999px;
+  border: 3px solid #e3e3e3;
+  border-radius: 50%;
   color: #484848;
-  padding: 6px 6px;
   font-size: 12px;
-  margin-left: 3px;
-  line-height: 12px;
+  margin-left: -8px;
+  z-index: 0;
 }
 
 .writersText {
   font-size: 18px;
-  margin-left: 11px;
   text-align: center;
 }
 

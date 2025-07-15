@@ -11,7 +11,7 @@ const HeaderIconBar = ({ name, writers, emojis, addEmoji, share }) => {
       <div className={IconBarStyles.name}>
         <strong>To. {name}</strong>
       </div>
-      {/* 2. 몇 명이 작성했는지 */}
+      {/* 2-1. 아바타 + 몇 명이 작성했는지 */}
       <div className={IconBarStyles.right}>
         <div className={IconBarStyles.writers}>
           <div className={IconBarStyles.writersAvatar}>
@@ -24,7 +24,7 @@ const HeaderIconBar = ({ name, writers, emojis, addEmoji, share }) => {
                   key={user.id}
                   src={user.avatar}
                   alt={user.name}
-                  className="avatar"
+                  className={IconBarStyles.avatar}
                 />
               )
             )}
@@ -34,12 +34,14 @@ const HeaderIconBar = ({ name, writers, emojis, addEmoji, share }) => {
                   + {writers.length - 3}
                 </span>
               )}
-              <span className={IconBarStyles.writersText}>
-                <strong>{writers.length}</strong>명이 작성했어요!
-              </span>
             </div>
           </div>
+          {/* 2-2. 텍스트 부분 */}
+          <span className={IconBarStyles.writersText}>
+            <strong>{writers.length}</strong>명이 작성했어요!
+          </span>
         </div>
+        <div className={IconBarStyles.divider}></div>
         {/* 3. 이모티콘 별 받은 수 표시 (내림차순)*/}
         <div className={IconBarStyles.emojis}>
           {sortedEmojis.map((emoji) => (
@@ -55,6 +57,7 @@ const HeaderIconBar = ({ name, writers, emojis, addEmoji, share }) => {
             추가
           </button>
         </div>
+        <div className={IconBarStyles.divider}></div>
         {/* 5. 공유 기능 */}
         <div>
           <button className={IconBarStyles.share} onClick={share}>

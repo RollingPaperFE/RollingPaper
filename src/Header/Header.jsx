@@ -1,12 +1,16 @@
 import HeaderLogo from "./HeaderLogo";
 import HeaderButton from "./HeaderButton";
 import HeaderIconBar from "./HeaderIconBar";
+import Jenny from "./assets/headerAvatar/Jenny.jpeg";
+import Rose from "./assets/headerAvatar/Rose.jpeg";
+import Jisoo from "./assets/headerAvatar/Jisoo.jpeg";
+import Lisa from "./assets/headerAvatar/Lisa.jpeg";
 
 const writersGroup = [
-  { id: "a1", name: "Jennie", avatar: "url1" },
-  { id: "a2", name: "Rose", avatar: "url2" },
-  { id: "a3", name: "Jisoo", avatar: "url3" },
-  { id: "a4", name: "Lisa", avatar: "url4" },
+  { id: "a1", name: "Jenny", avatar: Jenny },
+  { id: "a2", name: "Rose", avatar: Rose },
+  { id: "a3", name: "Jisoo", avatar: Jisoo },
+  { id: "a4", name: "Lisa", avatar: Lisa },
 ];
 
 const emojisGroup = [
