@@ -31,21 +31,6 @@
   background-color: #eeeeee;
 }
 
-.emojis {
-  display: flex;
-  gap: 10px;
-}
-
-.emojiItems {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background-color: rgb(140, 140, 140);
-  border-radius: 32px;
-  color: white;
-  padding: 8px 12px;
-}
-
 .writersAvatar {
   display: flex;
   position: relative;
@@ -99,6 +84,30 @@
   text-align: center;
 }
 
+.emojis {
+  display: flex;
+  gap: 10px;
+}
+
+.emojiItems {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgb(140, 140, 140);
+  border-radius: 32px;
+  color: white;
+  padding: 8px 12px;
+}
+
+.chevronIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #101010;
+  margin: 0 8px;
+  cursor: pointer;
+}
+
 .addEmoji {
   background-color: #ffffff;
   border-radius: 6px;
@@ -109,10 +118,20 @@
   height: 36px;
   font-size: 16px;
   color: #181818;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
 }
 
 .addEmoji:hover {
   background-color: #f2f2f2;
+}
+
+.addEmoji img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
 }
 
 .share {
@@ -127,4 +146,32 @@
 
 .share:hover {
   background-color: #f2f2f2;
+}
+
+/* 태블릿 */
+@media (max-width: 768px) {
+  .writers {
+    display: none;
+  }
+
+  .right {
+    gap: 8px;
+  }
+
+  .iconHeader {
+    padding: 16px 20px;
+  }
+
+  .name {
+    width: auto;
+    font-size: 20px;
+    padding: 8px 4px;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 360px) {
+  .writers {
+    display: none;
+  }
 }

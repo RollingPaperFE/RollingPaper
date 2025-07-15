@@ -1,3 +1,4 @@
+import { HiChevronDown } from "react-icons/hi";
 import PropTypes from "prop-types";
 import AddEmoji from "../assets/header_add_img.png";
 import ShareImg from "../assets/header_share_img.png";
@@ -49,6 +50,9 @@ const HeaderIconBar = ({ name, writers, emojis, addEmoji, share }) => {
               {emoji.symbol} {emoji.count}
             </span>
           ))}
+        </div>
+        <div className={IconBarStyles.chevronIcon}>
+          <HiChevronDown size={25} />
         </div>
         {/* 4. 이모지 추가 기능 */}
         <div>
