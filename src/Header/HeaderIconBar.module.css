@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+.iconHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ededed;
+  padding: 16px 70px;
+  height: 64px;
+}
+
+.name {
+  width: 227px;
+  height: 42px;
+  font-size: 28px;
+  color: #2b2b2b;
+  padding: 16px 8px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.emojis {
+  display: flex;
+  gap: 10px;
+}
+
+.emojiItems {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgb(140, 140, 140);
+  border-radius: 32px;
+  color: white;
+  padding: 8px 12px;
+}
+
+.writersCount {
+  font-size: 18px;
+}
+
+.writersPlus {
+  display: inline-block;
+  background-color: #ffffff;
+  border: 1px solid #e3e3e3;
+  border-radius: 999px;
+  color: #484848;
+  padding: 6px 6px;
+  font-size: 12px;
+  margin-left: 3px;
+  line-height: 12px;
+}
+
+.writersText {
+  font-size: 18px;
+  margin-left: 11px;
+  text-align: center;
+}
+
+.addEmoji {
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #cccccc;
+  padding: 6px 16px;
+  cursor: pointer;
+  width: 88px;
+  height: 36px;
+  font-size: 16px;
+  color: #181818;
+}
+
+.addEmoji:hover {
+  background-color: #f2f2f2;
+}
+
+.share {
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #cccccc;
+  width: 56px;
+  height: 36px;
+  cursor: pointer;
+  padding: 6px 16px;
+}
+
+.share:hover {
+  background-color: #f2f2f2;
+}
