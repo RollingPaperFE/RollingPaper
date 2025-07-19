@@ -1,11 +1,17 @@
-import { HiChevronDown } from "react-icons/hi";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import AddEmoji from "../assets/header_add_img.png";
+import ShowEmoji from "../assets/header_show_img.png";
 import ShareImg from "../assets/header_share_img.png";
 import IconBarStyles from "./HeaderIconBar.module.css";
 
 const HeaderIconBar = ({ name, writers, emojis, addEmoji, share }) => {
   const sortedEmojis = [...emojis].sort((a, b) => b.count - a.count);
+  const [showEmojis, setShowEmojis] = useState(false);
+  const ToggleEmojis = () => {
+    setShowEmojis((prev) => !prev);
+  };
+
   return (
     <div className={IconBarStyles.iconHeader}>
       <div className={IconBarStyles.name}>
@@ -43,20 +49,33 @@ const HeaderIconBar = ({ name, writers, emojis, addEmoji, share }) => {
           ))}
         </div>
         <div className={IconBarStyles.chevronIcon}>
-          <HiChevronDown size={25} />
+          <img src={ShowEmoji} alt="이모티콘 보기" onClick={ToggleEmojis} />
+          {showEmojis ? (
+            <div>
+              {sortedEmojis.slice(0, 8).map((emojis) => (
+                <span
+                  key={emojis.symbol}
+                  className={IconBarStyles.toggleEmojiItems}
+                >
+                  {emojis.symbol} {emojis.count}
+                </span>
+              ))}
+            </div>
+          ) : null}
+          {/* 토글 클릭하면 클릭 이미지(아이콘)가 사라지고 고정됨 ㅠㅠ */}
         </div>
-        <div>
-          <button className={IconBarStyles.addEmoji} onClick={addEmoji}>
-            <img src={AddEmoji} alt="추가하기" />
-            추가
-          </button>
-        </div>
-        <div className={IconBarStyles.dividerSecond}></div>
-        <div>
-          <button className={IconBarStyles.share} onClick={share}>
-            <img src={ShareImg} alt="공유하기" />
-          </button>
-        </div>
+      </div>
+      <div>
+        <button className={IconBarStyles.addEmoji} onClick={addEmoji}>
+          <img src={AddEmoji} alt="추가하기" />
+          추가
+        </button>
+      </div>
+      <div className={IconBarStyles.dividerSecond}></div>
+      <div>
+        <button className={IconBarStyles.share} onClick={share}>
+          <img src={ShareImg} alt="공유하기" />
+        </button>
       </div>
     </div>
   );
