@@ -48,10 +48,10 @@ const HeaderIconBar = ({ name, writers, emojis, addEmoji, share }) => {
             </span>
           ))}
         </div>
-        <div className={IconBarStyles.chevronIcon}>
+        <div className={IconBarStyles.toggleEmojiWrapper}>
           <img src={ShowEmoji} alt="이모티콘 보기" onClick={ToggleEmojis} />
           {showEmojis ? (
-            <div>
+            <div className={IconBarStyles.toggleEmojiBox}>
               {sortedEmojis.slice(0, 8).map((emojis) => (
                 <span
                   key={emojis.symbol}
