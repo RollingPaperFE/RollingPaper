@@ -5,11 +5,17 @@ import ShowEmoji from "../assets/header_show_img.png";
 import ShareImg from "../assets/header_share_img.png";
 import IconBarStyles from "./HeaderIconBar.module.css";
 
-const HeaderIconBar = ({ name, writers, emojis, addEmoji, share }) => {
+const HeaderIconBar = ({ name, writers, emojis, addEmoji }) => {
   const sortedEmojis = [...emojis].sort((a, b) => b.count - a.count);
   const [showEmojis, setShowEmojis] = useState(false);
+  const [shareUrl, setShareUrl] = useState(false);
+
   const ToggleEmojis = () => {
     setShowEmojis((prev) => !prev);
+  };
+
+  const ToggleShare = () => {
+    setShareUrl((prev) => !prev);
   };
 
   return (
@@ -50,7 +56,7 @@ const HeaderIconBar = ({ name, writers, emojis, addEmoji, share }) => {
         </div>
         <div className={IconBarStyles.toggleEmojiWrapper}>
           <img src={ShowEmoji} alt="이모티콘 보기" onClick={ToggleEmojis} />
-          {showEmojis ? (
+          {showEmojis && (
             <div className={IconBarStyles.toggleEmojiBox}>
               {sortedEmojis.slice(0, 8).map((emojis) => (
                 <span
@@ -61,21 +67,30 @@ const HeaderIconBar = ({ name, writers, emojis, addEmoji, share }) => {
                 </span>
               ))}
             </div>
-          ) : null}
-          {/* 토글 클릭하면 클릭 이미지(아이콘)가 사라지고 고정됨 ㅠㅠ */}
+          )}
         </div>
-      </div>
-      <div>
-        <button className={IconBarStyles.addEmoji} onClick={addEmoji}>
-          <img src={AddEmoji} alt="추가하기" />
-          추가
-        </button>
-      </div>
-      <div className={IconBarStyles.dividerSecond}></div>
-      <div>
-        <button className={IconBarStyles.share} onClick={share}>
-          <img src={ShareImg} alt="공유하기" />
-        </button>
+        <div>
+          <button className={IconBarStyles.addEmoji} onClick={addEmoji}>
+            <img src={AddEmoji} alt="추가하기" />
+            추가
+          </button>
+        </div>
+        <div className={IconBarStyles.dividerSecond}></div>
+        <div>
+          <button className={IconBarStyles.shareWrapper} onClick={ToggleShare}>
+            <img src={ShareImg} alt="공유하기" />
+            {shareUrl && (
+              <div className={IconBarStyles.shareUrl}>
+                <span className={IconBarStyles.shareUrlText}>
+                  <div className={IconBarStyles.shareUrlTitle}>
+                    카카오톡 공유
+                  </div>
+                  <div className={IconBarStyles.shareUrlTitle}>URL 공유</div>
+                </span>
+              </div>
+            )}
+          </button>
+        </div>
       </div>
     </div>
   );

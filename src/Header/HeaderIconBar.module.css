@@ -159,7 +159,7 @@
   vertical-align: middle;
 }
 
-.share {
+.shareWrapper {
   background-color: #ffffff;
   border-radius: 6px;
   border: 1px solid #cccccc;
@@ -167,10 +167,39 @@
   height: 36px;
   cursor: pointer;
   padding: 6px 16px;
+  position: relative;
 }
 
-.share:hover {
+.shareWrapper:hover {
   background-color: #f2f2f2;
+}
+
+.shareUrl {
+  width: 140px;
+  height: 120px;
+  top: 43px;
+  right: 0px;
+  background-color: #ffffff;
+  position: absolute;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  z-index: 999;
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  place-items: center;
+  padding: 10px 1px;
+}
+
+.shareUrlTitle {
+  color: #181818;
+  font-size: 16px;
+  padding: 16px 8px;
+  text-align: left;
+}
+
+.shareUrlTitle:hover {
+  background-color: #f2f2f2;
+  /* title의 padding 값으로만 background 색이 반영됨!! why!! */
 }
 
 /* 태블릿 */

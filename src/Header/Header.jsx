@@ -23,10 +23,6 @@ const addEmojiGroup = () => {
   //이모지 추가
 };
 
-const shareGroup = () => {
-  //공유 기능
-};
-
 const Header = ({ type }) => {
   return (
     <header>
@@ -37,7 +33,6 @@ const Header = ({ type }) => {
         writers={writersGroup}
         emojis={emojisGroup}
         addEmoji={addEmojiGroup}
-        share={shareGroup}
       />
     </header>
   );
