@@ -1,0 +1,303 @@
+* {
+  box-sizing: border-box;
+}
+
+.iconHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ededed;
+  padding: 16px 70px;
+  height: 64px;
+}
+
+.name {
+  width: 227px;
+  height: 42px;
+  font-size: 28px;
+  color: #2b2b2b;
+  padding: 8px 8px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.dividerFirst,
+.dividerSecond {
+  width: 1px;
+  height: 28px;
+  background-color: #eeeeee;
+}
+
+.writersAvatar {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.writers {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.avatar {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 3px solid #fff;
+  margin-left: -12px;
+  z-index: 1;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.writersCount {
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 3;
+  margin-left: -6px;
+}
+
+.writersPlus {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border: 3px solid #e3e3e3;
+  border-radius: 50%;
+  color: #484848;
+  font-size: 12px;
+  margin-left: -8px;
+  z-index: 0;
+}
+
+.writersText {
+  font-size: 18px;
+  text-align: center;
+}
+
+.emojis {
+  display: flex;
+  gap: 10px;
+}
+
+.emojiItems {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgb(140, 140, 140);
+  border-radius: 32px;
+  color: white;
+  padding: 8px 12px;
+}
+
+.toggleEmojiWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.toggleEmojiBox {
+  width: 312px;
+  height: 134px;
+  position: absolute;
+  top: 36px; /* 이미지 아래로 위치시킴 */
+  right: 0; /* 부모 요소에 붙도록 설정 */
+  background-color: #ffffff;
+  padding: 6px;
+  border-radius: 10px;
+  border: 1px solid #b6b6b6;
+  z-index: 100; /* 다른 페이지보다 위에 있어야 하기 때문에 안전성 ! */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+  padding: 16px 8px;
+}
+
+.toggleEmojiItems {
+  width: 63px;
+  height: 38px;
+  display: flex;
+  gap: 10px;
+  background-color: rgb(140, 140, 140);
+  border-radius: 32px;
+  color: white;
+  padding: 8px 12px;
+}
+
+.addEmoji {
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #cccccc;
+  padding: 6px 16px;
+  cursor: pointer;
+  width: 88px;
+  height: 36px;
+  font-size: 16px;
+  color: #181818;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.addEmoji:hover {
+  background-color: #f2f2f2;
+}
+
+.addEmoji img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.shareWrapper {
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #cccccc;
+  width: 56px;
+  height: 36px;
+  cursor: pointer;
+  padding: 6px 16px;
+  position: relative;
+}
+
+.shareWrapper:hover {
+  background-color: #f2f2f2;
+}
+
+.shareUrl {
+  width: 140px;
+  height: 120px;
+  top: 43px;
+  right: 0px;
+  background-color: #ffffff;
+  position: absolute;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  z-index: 999;
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  place-items: center;
+  padding: 10px 1px;
+}
+
+.shareUrlTitle {
+  color: #181818;
+  font-size: 16px;
+  padding: 16px 8px;
+  text-align: left;
+}
+
+.shareUrlTitle:hover {
+  background-color: #f2f2f2;
+  /* title의 padding 값으로만 background 색이 반영됨!! why!! */
+}
+
+/* 태블릿 */
+@media (max-width: 768px) {
+  .writers {
+    display: none;
+  }
+
+  .right {
+    gap: 8px;
+  }
+
+  .iconHeader {
+    padding: 16px 20px;
+  }
+
+  .name {
+    width: auto;
+    font-size: 20px;
+    padding: 8px 4px;
+  }
+
+  .dividerFirst {
+    display: none;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 360px) {
+  .writers {
+    display: none;
+  }
+
+  .iconHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    gap: 8px;
+    padding: 12px 4px;
+  }
+
+  .name {
+    width: 100%;
+    height: 42px;
+    font-size: 20px;
+    color: #2b2b2b;
+    padding: 4px 12px;
+    border-bottom: 1px solid #ededed;
+  }
+
+  .right {
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .dividerFirst {
+    display: none;
+  }
+
+  .emojis {
+    flex-wrap: nowrap;
+    gap: 6px;
+    padding: 4px 12px;
+  }
+
+  .emojiItems {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgb(140, 140, 140);
+    border-radius: 32px;
+    color: white;
+    padding: 4px 8px;
+    white-space: nowrap;
+    font-size: 14px;
+  }
+
+  .addEmoji {
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5px;
+  }
+
+  .addEmoji img {
+    width: 23px;
+    height: 23px;
+  }
+
+  .addText {
+    display: none;
+  }
+
+  .share {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+  }
+}
