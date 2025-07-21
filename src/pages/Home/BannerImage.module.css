@@ -1,0 +1,14 @@
+.banner-img {
+  margin: 60px 0;
+  max-width: 720px;
+  width: 60%;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .banner-img {
+    margin: 0;
+    max-width: 720px;
+    width: 100%;
+  }
+}
