@@ -4,7 +4,7 @@
   max-width: 1200px;
   width: 100%;
   height: 324px;
-  background-color: #f6f8ff;
+  background-color: var(--surface);
   border-radius: 16px;
 }
 

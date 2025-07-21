@@ -24,8 +24,8 @@
   font-size: 14px;
   font-weight: 700;
   border-radius: 50px;
-  background-color: #9935ff;
-  color: white;
+  background-color: var(--purple-600);
+  color: var(--white);
 }
 
 .title {
@@ -33,7 +33,7 @@
   font-weight: 700;
   line-height: 36px;
   letter-spacing: -1px;
-  color: #181818;
+  color: var(--grayscale-900);
 }
 
 .subtitle {
@@ -41,7 +41,7 @@
   font-weight: 400;
   line-height: 28px;
   letter-spacing: -1px;
-  color: #555555;
+  color: var(--grayscale-500);
 }
 
 /* Tablet */

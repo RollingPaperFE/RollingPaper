@@ -54,19 +54,19 @@
 }
 
 .bg-beige {
-  background-color: #ffe2ad;
+  background-color: var(--beige-200);
 }
 
 .bg-purple {
-  background-color: #ecd9ff;
+  background-color: var(--purple-200);
 }
 
 .bg-blue {
-  background-color: #b1e4ff;
+  background-color: var(--blue-200);
 }
 
 .bg-green {
-  background-color: #d0f5c3;
+  background-color: var(--green-200);
 }
 
 .card-container {
@@ -96,19 +96,19 @@
 }
 
 .name-text-img-version {
-  color: white;
+  color: var(--white);
 }
 
 .posted-count-text-img-version {
-  color: #eeeeee;
+  color: var(--grayscale-200);
 }
 
 .name-text-color-version {
-  color: black;
+  color: var(--black);
 }
 
 .posted-count-text-color-version {
-  color: #3a3a3a;
+  color: var(--grayscale-700);
 }
 
 .card-emoji-container {
