@@ -1,4 +1,3 @@
-import HeaderLogo from "./HeaderLogo";
 import HeaderButton from "./HeaderButton";
 import HeaderIconBar from "./HeaderIconBar";
 import Jenny from "../assets/headerAvatar/Jenny.jpeg";
@@ -32,10 +31,7 @@ const addEmojiGroup = () => {
 const Header = () => {
   return (
     <header>
-      <HeaderLogo />
       <HeaderButton />
-      {/* {type === "Logo" && <HeaderLogo />}
-      {type === "rolling" && <HeaderButton />} */}
       <HeaderIconBar
         name="Ashely Kim"
         writers={writersGroup}
