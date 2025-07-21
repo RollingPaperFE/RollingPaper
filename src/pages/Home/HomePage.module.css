@@ -15,8 +15,8 @@
   height: 56px;
   justify-content: center;
   align-items: center;
-  background-color: #9935ff;
-  color: white;
+  background-color: var(--purple-600);
+  color: var(--white);
   font-size: 18px;
   font-weight: 700;
   border: none;

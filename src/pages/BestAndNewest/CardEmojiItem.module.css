@@ -11,7 +11,7 @@
 }
 
 .count {
-  color: white;
+  color: var(--white);
 }
 
 /* Mobile */
