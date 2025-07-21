@@ -1,6 +1,6 @@
 .list-page {
   display: flex;
-  margin: 0 auto;
+  margin: 50px auto 0;
   width: 1200px;
   flex-direction: column;
   gap: 50px;
@@ -8,6 +8,7 @@
 
 .btn-container {
   display: flex;
+  width: 100%;
 }
 
 .create-btn {
@@ -29,7 +30,8 @@
 /* Tablet */
 @media (max-width: 768px) {
   .list-page {
-    width: 768px;
+    max-width: 768px;
+    width: 100%;
   }
 
   .btn-container {
@@ -45,7 +47,7 @@
 /* Mobile */
 @media (max-width: 360px) {
   .list-page {
-    width: 360px;
+    margin-top: 40px;
   }
 
   .btn-container {
@@ -53,8 +55,8 @@
   }
 
   .create-btn {
+    width: 100%;
     margin-top: 16px;
-    width: 320px;
     font-weight: 400;
   }
 }

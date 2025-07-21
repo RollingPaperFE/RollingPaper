@@ -1,12 +1,29 @@
 .emoji-container {
   display: flex;
-  width: 33%;
+  width: 65px;
+  height: 36px;
   padding: 8px 12px;
   gap: 5px;
+  justify-content: space-between;
+  align-items: center;
   border-radius: 32px;
   background-color: #0000008a;
 }
 
 .count {
   color: white;
+}
+
+/* Mobile */
+@media (max-width: 360px) {
+  .emoji-container {
+    width: 55px;
+    height: 32px;
+    padding: 6px 8px;
+  }
+
+  .emoji,
+  .count {
+    font-size: 14px;
+  }
 }
