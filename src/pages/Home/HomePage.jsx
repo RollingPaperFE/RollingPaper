@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import HomeBanner from "./HomeBanner";
+import HeaderButton from "../../Header/HeaderButton";
 import homeStyle from "./HomePage.module.css";
 
 const bannerList = [
@@ -20,11 +22,16 @@ const bannerList = [
 
 const HomePage = () => {
   return (
-    <div className={homeStyle["homepage"]}>
-      <HomeBanner {...bannerList[0]} />
-      <HomeBanner {...bannerList[1]} />
-      <div className={homeStyle["link-btn"]}>구경해보기</div>
-    </div>
+    <>
+      <HeaderButton isMake={true} />
+      <div className={homeStyle["homepage"]}>
+        <HomeBanner {...bannerList[0]} />
+        <HomeBanner {...bannerList[1]} />
+        <Link to={"/list"} className={homeStyle["link-btn"]}>
+          구경해보기
+        </Link>
+      </div>
+    </>
   );
 };
 
