@@ -5,7 +5,7 @@ import LogoImg from "../assets/header_logo_img.png";
 const HeaderLogo = () => {
   return (
     <header className={globalStyle.header}>
-      <Link to="/">
+      <Link to="/" className={globalStyle.logoLink}>
         <div className={globalStyle.logoBox}>
           <img
             className={globalStyle.logoImg}

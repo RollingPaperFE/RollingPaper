@@ -1,10 +1,10 @@
 import HeaderLogo from "./HeaderLogo";
 import HeaderButton from "./HeaderButton";
 import HeaderIconBar from "./HeaderIconBar";
-import Jenny from "./assets/headerAvatar/Jenny.jpeg";
-import Rose from "./assets/headerAvatar/Rose.jpeg";
-import Jisoo from "./assets/headerAvatar/Jisoo.jpeg";
-import Lisa from "./assets/headerAvatar/Lisa.jpeg";
+import Jenny from "../assets/headerAvatar/Jenny.jpeg";
+import Rose from "../assets/headerAvatar/Rose.jpeg";
+import Jisoo from "../assets/headerAvatar/Jisoo.jpeg";
+import Lisa from "../assets/headerAvatar/Lisa.jpeg";
 
 const writersGroup = [
   { id: "a1", name: "Jenny", avatar: Jenny },
@@ -17,17 +17,25 @@ const emojisGroup = [
   { symbol: "👍", count: 24 },
   { symbol: "😍", count: 16 },
   { symbol: "🎉", count: 10 },
+  { symbol: "😂", count: 9 },
+  { symbol: "🔥", count: 4 },
+  { symbol: "🍀", count: 5 },
+  { symbol: "👾", count: 8 },
+  { symbol: "⭐️", count: 1 },
+  { symbol: "💪🏻", count: 3 },
 ];
 
 const addEmojiGroup = () => {
   //이모지 추가
 };
 
-const Header = ({ type }) => {
+const Header = () => {
   return (
     <header>
-      {type === "Logo" && <HeaderLogo />}
-      {type === "rolling" && <HeaderButton />}
+      <HeaderLogo />
+      <HeaderButton />
+      {/* {type === "Logo" && <HeaderLogo />}
+      {type === "rolling" && <HeaderButton />} */}
       <HeaderIconBar
         name="Ashely Kim"
         writers={writersGroup}

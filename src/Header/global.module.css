@@ -12,6 +12,10 @@
   height: 64px;
 }
 
+.logoLink {
+  text-decoration-line: none;
+}
+
 .logoBox {
   display: flex;
   align-items: center;

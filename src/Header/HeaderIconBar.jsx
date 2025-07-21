@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import AddEmoji from "../assets/header_add_img.png";
-import ShowEmoji from "../assets/header_show_img.png";
+import ShowEmoji from "../assets/header_showEmojis_img.png";
 import ShareImg from "../assets/header_share_img.png";
 import IconBarStyles from "./HeaderIconBar.module.css";
 
@@ -47,8 +47,9 @@ const HeaderIconBar = ({ name, writers, emojis, addEmoji }) => {
           </span>
         </div>
         <div className={IconBarStyles.dividerFirst}></div>
+
         <div className={IconBarStyles.emojis}>
-          {sortedEmojis.map((emoji) => (
+          {sortedEmojis.slice(0, 3).map((emoji) => (
             <span key={emoji.symbol} className={IconBarStyles.emojiItems}>
               {emoji.symbol} {emoji.count}
             </span>
