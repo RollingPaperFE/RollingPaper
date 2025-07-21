@@ -1,0 +1,12 @@
+.emoji-container {
+  display: flex;
+  width: 33%;
+  padding: 8px 12px;
+  gap: 5px;
+  border-radius: 32px;
+  background-color: #0000008a;
+}
+
+.count {
+  color: white;
+}

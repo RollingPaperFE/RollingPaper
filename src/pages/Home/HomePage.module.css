@@ -1,0 +1,49 @@
+.homepage {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1200px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.link-btn {
+  display: inline-flex;
+  margin: 18px 0 24px;
+  width: 280px;
+  height: 56px;
+  justify-content: center;
+  align-items: center;
+  background-color: #9935ff;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .homepage {
+    margin: 0;
+    padding: 0 24px;
+  }
+
+  .link-btn {
+    width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 360px) {
+  .homepage {
+    padding: 0 20px;
+    gap: 24px;
+  }
+
+  .link-btn {
+    margin-top: 37px;
+  }
+}
