@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+
+.RelationshipSelector {
+  width: 320px;
+  height: 98px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.RelationshipSelector h2 {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.RelationshipSelector select {
+  width: 100%;
+  height: 50px;
+  font-family: "Noto Sans KR", sans-serif;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  padding: 10px;
+  color: #898989;
+}
