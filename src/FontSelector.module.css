@@ -1,0 +1,25 @@
+.FontSelector {
+  width: 320px;
+  height: 98px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.FontSelector h2 {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.FontSelector select {
+  width: 100%;
+  height: 50px;
+  font-family: "Noto Sans KR", sans-serif;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  padding: 10px;
+  color: #898989;
+  padding-left: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
