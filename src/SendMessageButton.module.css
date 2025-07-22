@@ -1,0 +1,13 @@
+.SendMessageButton {
+  margin-top: 62px;
+}
+
+.SendMessageButton button {
+  width: 720px;
+  height: 56px;
+  background-color: #9935ff;
+  border: none;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 18px;
+}
