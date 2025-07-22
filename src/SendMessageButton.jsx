@@ -1,9 +1,9 @@
 import styles from "./SendMessageButton.module.css";
 
-const SendMessageButton = () => {
+const SendMessageButton = ({ onClick }) => {
   return (
     <div className={styles.SendMessageButton}>
-      <button>생성하기</button>
+      <button onClick={onClick}>생성하기</button>
     </div>
   );
 };
