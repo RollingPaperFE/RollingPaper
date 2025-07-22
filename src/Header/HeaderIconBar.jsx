@@ -3,12 +3,14 @@ import PropTypes from "prop-types";
 import AddEmoji from "../assets/header_add_img.png";
 import ShowEmoji from "../assets/header_showEmojis_img.png";
 import ShareImg from "../assets/header_share_img.png";
+import toastImg from "../assets/toast_img.png";
 import IconBarStyles from "./HeaderIconBar.module.css";
 
 const HeaderIconBar = ({ name, writers, emojis, addEmoji }) => {
   const sortedEmojis = [...emojis].sort((a, b) => b.count - a.count);
   const [showEmojis, setShowEmojis] = useState(false);
   const [shareUrl, setShareUrl] = useState(false);
+  const [isToastVisible, setIsToastVisible] = useState(false);
 
   const ToggleEmojis = () => {
     setShowEmojis((prev) => !prev);
@@ -16,6 +18,12 @@ const HeaderIconBar = ({ name, writers, emojis, addEmoji }) => {
 
   const ToggleShare = () => {
     setShareUrl((prev) => !prev);
+  };
+
+  const handleClick = (e) => {
+    e.stopPropagation();
+    setIsToastVisible(true);
+    setTimeout(() => setIsToastVisible(false), 3000);
   };
 
   return (
@@ -78,7 +86,7 @@ const HeaderIconBar = ({ name, writers, emojis, addEmoji }) => {
         </div>
         <div className={IconBarStyles.dividerSecond}></div>
         <div>
-          <button className={IconBarStyles.shareWrapper} onClick={ToggleShare}>
+          <div className={IconBarStyles.shareWrapper} onClick={ToggleShare}>
             <img src={ShareImg} alt="공유하기" />
             {shareUrl && (
               <div className={IconBarStyles.shareUrl}>
@@ -86,11 +94,22 @@ const HeaderIconBar = ({ name, writers, emojis, addEmoji }) => {
                   <div className={IconBarStyles.shareUrlTitle}>
                     카카오톡 공유
                   </div>
-                  <div className={IconBarStyles.shareUrlTitle}>URL 공유</div>
+                  <div
+                    className={IconBarStyles.shareUrlTitle}
+                    onClick={handleClick}
+                  >
+                    URL 공유
+                  </div>
+                  {isToastVisible && (
+                    <div className={IconBarStyles.toast}>
+                      <img src={toastImg} alt="URL주소복사" />
+                      URL이 복사되었습니다.
+                    </div>
+                  )}
                 </span>
               </div>
             )}
-          </button>
+          </div>
         </div>
       </div>
     </div>
