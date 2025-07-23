@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useRecipientById } from "../../Header/HeaderIconBarContainer";
 import { useRollingPaper } from "./useRollingPaper";
+import { useState } from "react";
 import RollingPaperCard from "./RollingPaperCard";
 import rollingListStyle from "./RollingPaperListPage.module.css";
 import HeaderContainer from "../../Header/HeaderApi";
@@ -20,6 +21,14 @@ const RollingPaperListPage = () => {
   const { recipients } = useRecipientById(id);
   const { backgroundColor, backgroundImageURL } = recipients;
 
+  const [showCreateCard, setShowCreateCard] = useState(true); // #37 생성된 롤링페이퍼 페이지 삭제
+
+  // #37 생성된 롤링페이퍼 페이지 삭제
+  const handleDeleteClick = (e) => {
+    e.preventDefault();
+    setShowCreateCard((prev) => !prev);
+  };
+
   return (
     <>
       <HeaderContainer id={id} />
@@ -38,13 +47,19 @@ const RollingPaperListPage = () => {
           minHeight: "100vh",
         }}
       >
-        <Link to={""} className={rollingListStyle["editor-link-btn"]}>
+        <Link
+          to={""}
+          className={rollingListStyle["editor-link-btn"]}
+          onClick={handleDeleteClick} // #37 생성된 롤링페이퍼 페이지 삭제
+        >
           <span className="material-icons">delete</span>
         </Link>
         <div className={rollingListStyle["card-list-container"]}>
-          <Link to={`/post/${id}/message`}>
-            <RollingPaperCard isCreate={true} />
-          </Link>
+          {showCreateCard && ( // #37 생성된 롤링페이퍼 페이지 삭제
+            <Link to={`/post/${id}/message`}>
+              <RollingPaperCard isCreate={true} />
+            </Link>
+          )}
           {results &&
             results.map((result) => (
               <RollingPaperCard key={result.id} error={error} result={result} />
