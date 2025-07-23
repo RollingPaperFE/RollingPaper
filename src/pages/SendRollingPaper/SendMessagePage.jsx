@@ -4,15 +4,15 @@ import SendMessageContent from "./SendMessageContent";
 import FontSelector from "./FontSelector";
 import SendMessageButton from "./SendMessageButton";
 import styles from "./SendMessagePage.module.css";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import HeaderButton from "../../Header/HeaderButton";
 import ProfileImageSelector from "./ProfileImageSelector";
+import axios from "axios";
 
 const SendMessagePage = ({ externalData, onSubmit }) => {
-  const idRef = useRef(Date.now()); // 고정된 메시지 ID 생성
-  const recipientId = 2; // 로그인된 사용자 ID
-
   const [messageData, setMessageData] = useState(null);
+  const { id } = useParams();
 
   useEffect(() => {
     if (externalData) {
@@ -39,13 +39,16 @@ const SendMessagePage = ({ externalData, onSubmit }) => {
   const handleSave = () => {
     const completeMessage = {
       ...messageData,
-      id: idRef.current,
-      recipientId,
-      createdAt: new Date().toISOString(),
     };
-
-    console.log("최종 저장 데이터:", completeMessage);
-    onSubmit?.(completeMessage); // App 컴포넌트로 전달
+    axios.post(
+      `https://rolling-api.vercel.app/17-2/recipients/${id}/messages/`,
+      completeMessage,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
   };
 
   if (!messageData) return <div>로딩 중...</div>;
@@ -63,7 +66,7 @@ const SendMessagePage = ({ externalData, onSubmit }) => {
         <div>
           <ProfileImageSelector
             value={messageData.profileImageURL}
-            onchange={(value) => handleChange("profileImageURL", value)}
+            onChange={(value) => handleChange("profileImageURL", value)}
           />
         </div>
         <div>
