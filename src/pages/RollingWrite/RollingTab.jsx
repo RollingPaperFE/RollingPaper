@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
-import "./RollingTab.css";
+import styles from "./RollingTab.module.css";
 
 function RollingTab({ onColorSelect, onImageSelect }) {
   const [tabIndex, setTabIndex] = useState(0); // 컬러/이미지 탭 전환용
@@ -22,8 +22,10 @@ function RollingTab({ onColorSelect, onImageSelect }) {
       .then((data) => {
         setImages(data.imageUrls);
         if (data.imageUrls.length > 0) {
+          /*
           setActiveImageIndex(0);
-          onImageSelect(data.imageUrls[0]);
+          onImageSelect(data.imageUrls[0]);*/
+          setImages(data.imageUrls);
         }
       })
       .catch((err) => console.error("이미지 불러오기 실패:", err));
@@ -34,7 +36,7 @@ function RollingTab({ onColorSelect, onImageSelect }) {
       id: 0,
       title: "컬러",
       description: (
-        <ul className="RollingTabFirst">
+        <ul className={styles.RollingTabFirst}>
           {colors.map((color, index) => (
             <li
               key={index}
@@ -42,7 +44,7 @@ function RollingTab({ onColorSelect, onImageSelect }) {
                 setActiveColor(color);
                 onColorSelect(color);
               }}
-              className={"btn" + (activeColor === color ? " active" : "")}
+              className={`${styles.btnColor} ${activeColor === color ? styles.activeItem : ""}`}
             >
               <FaCheckCircle />
             </li>
@@ -54,7 +56,7 @@ function RollingTab({ onColorSelect, onImageSelect }) {
       id: 1,
       title: "이미지",
       description: (
-        <ul className="RollingTabSecond">
+        <ul className={styles.RollingTabSecond}>
           {images.map((url, index) => (
             <li
               key={index}
@@ -62,7 +64,7 @@ function RollingTab({ onColorSelect, onImageSelect }) {
                 setActiveImageIndex(index);
                 onImageSelect(url);
               }}
-              className={"btn2" + (activeImageIndex === index ? " active" : "")}
+              className={`${styles.btnImage} ${activeImageIndex === index ? styles.activeItem : ""}`}
               style={{
                 backgroundImage:
                   activeImageIndex === index
@@ -80,12 +82,12 @@ function RollingTab({ onColorSelect, onImageSelect }) {
 
   return (
     <section>
-      <ul className="RollingTab">
+      <ul className={styles.RollingTab}>
         {data.map((item) => (
           <li
             key={item.id}
             onClick={() => setTabIndex(item.id)}
-            className={tabIndex === item.id ? "active" : ""}
+            className={`${tabIndex === item.id ? styles.activeTab : ""}`}
           >
             {item.title}
           </li>

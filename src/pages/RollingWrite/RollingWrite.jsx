@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import {FaCheckCircle} from "react-icons/fa";
 import RollingTab from './RollingTab';
 import './RollingWriteReset.css';
-import './RollingWrite.css';
+import styles from './RollingWrite.module.css';
 
 function RollingWrite(){
+
+    const navigate = useNavigate();
 
     /*input 글자 입력시 버튼 활성화*/
     const [name, setText] = useState("");
@@ -34,7 +37,7 @@ function RollingWrite(){
   const payload = {
     name,
     backgroundColor,
-    backgroundImageURL,
+    backgroundImageURL: backgroundImageURL || null,
   };
 
   try {
@@ -53,6 +56,9 @@ function RollingWrite(){
     const data = await response.json();
     console.log('서버 응답:', data);
 
+    //성공 후 페이지 이동
+    navigate('../list')
+
     // 서버 응답 성공 후 처리(예: 입력 초기화, 알림 등)
     setText('');
     setSelectedColor('');
@@ -64,12 +70,12 @@ function RollingWrite(){
     /*--------end-----------*/
 
     return (
-        <div className="RollingWriteMain">
+        <div className={styles.RollingWriteMain}>
         <form onSubmit={handleSubmit}> 
-            <h1 className="titleTo">To.</h1>
-            <input placeholder={"받는 사람 이름을 입력해 주세요"} value={name} onChange={handleTextChange}></input>
-            <h1>배경화면을 선택해 주세요.</h1>
-            <p>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
+            <h1 className={styles.titleTo}>To.</h1>
+            <input placeholder="받는 사람 이름을 입력해 주세요" value={name} onChange={handleTextChange} className={styles.input}></input>
+            <h1 className={styles.heading}>배경화면을 선택해 주세요.</h1>
+            <p className={styles.subtext}>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
 
             <RollingTab 
                 onColorSelect={(color) => {
@@ -79,7 +85,7 @@ function RollingWrite(){
                     setSelectedImage(imageUrl);
                 }}
             />
-            <button type="submit" disabled={!name}>생성하기</button>
+            <button type="submit" disabled={!name} className={!name ? styles.disabledButton : styles.button}>생성하기</button>
         </form>
         </div>
     );
