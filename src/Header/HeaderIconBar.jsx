@@ -57,9 +57,10 @@ const HeaderIconBar = ({ name, writers, profileImgUrls, emojis }) => {
               )}
             </div>
           </div>
-          <span className={IconBarStyles.writersText}>
-            <strong>{writers}</strong>명이 작성했어요!
-          </span>
+          <div className={IconBarStyles.writersText}>
+            <span className={IconBarStyles.writersNum}>{writers}</span>
+            명이 작성했어요!
+          </div>
         </div>
         <div className={IconBarStyles.dividerFirst}></div>
         <div className={IconBarStyles.emojis}>

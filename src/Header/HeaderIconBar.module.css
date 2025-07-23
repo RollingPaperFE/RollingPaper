@@ -19,6 +19,7 @@
   color: #2b2b2b;
   padding: 8px 8px;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .right {
@@ -85,6 +86,11 @@
 .writersText {
   font-size: 18px;
   text-align: center;
+  white-space: nowrap;
+}
+
+.writersNum {
+  font-weight: 700;
 }
 
 .emojis {
@@ -101,6 +107,7 @@
   border-radius: 32px;
   color: white;
   padding: 8px 12px;
+  white-space: nowrap;
 }
 
 .toggleEmojiWrapper {
