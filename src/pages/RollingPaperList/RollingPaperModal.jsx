@@ -15,17 +15,7 @@ const RollingPaperModal = ({ isOpen, handleModalClose, result }) => {
   if (!isOpen) return null;
   return (
     <>
-      <div
-        style={{
-          position: "fixed",
-          top: "0",
-          left: "0",
-          right: "0",
-          bottom: "0",
-          backgroundColor: "#00000099",
-          zIndex: "1000",
-        }}
-      />
+      <div className={modalStyle["overlay"]} />
       <div className={modalStyle["modal-container"]}>
         <div className={modalStyle["sender-container"]}>
           <div className={modalStyle["img-and-text-container"]}>

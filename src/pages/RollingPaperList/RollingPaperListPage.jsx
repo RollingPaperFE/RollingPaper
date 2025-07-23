@@ -39,7 +39,7 @@ const RollingPaperListPage = () => {
         }}
       >
         <Link to={""} className={rollingListStyle["editor-link-btn"]}>
-          수정
+          <span className="material-icons">delete</span>
         </Link>
         <div className={rollingListStyle["card-list-container"]}>
           <Link to={`/post/${id}/message`}>
