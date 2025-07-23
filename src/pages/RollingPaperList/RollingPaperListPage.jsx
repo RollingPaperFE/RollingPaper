@@ -21,10 +21,12 @@ const RollingPaperListPage = () => {
   const { recipients } = useRecipientById(id);
   const { backgroundColor, backgroundImageURL } = recipients;
 
-  console.log(backgroundImageURL);
   useEffect(() => {
     if (backgroundImageURL) {
-      document.querySelector("body").style.backgroundImage = backgroundImageURL;
+      document.querySelector("body").style.backgroundImage = `url(
+        "${backgroundImageURL}"
+      )`;
+      document.querySelector("body").style.backgroundSize = "cover";
     } else {
       document.querySelector("body").style.background =
         backgroundColorList[backgroundColor];
