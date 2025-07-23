@@ -12,6 +12,7 @@
   border-radius: 16px;
   background-color: var(--white);
   box-shadow: 0px 2px 12px #00000014;
+  z-index: 1000;
 }
 
 .sender-container {
