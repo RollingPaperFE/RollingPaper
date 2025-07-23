@@ -76,6 +76,16 @@
   background-color: var(--green-200);
 }
 
+.side-img {
+  position: absolute;
+  width: 142px;
+  height: 142px;
+  z-index: 1;
+  border-bottom-right-radius: 16px;
+  top: 118px;
+  left: 133px;
+}
+
 .card-container {
   position: relative;
   display: flex;
@@ -135,6 +145,13 @@
   .btn-container {
     width: 208px;
     height: 232px;
+  }
+
+  .side-img {
+    width: 107px;
+    height: 113px;
+    top: 118px;
+    left: 100px;
   }
 
   .name-text {
