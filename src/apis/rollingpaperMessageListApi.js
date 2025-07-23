@@ -5,11 +5,10 @@ const instance = axios.create({
   timeout: 5000,
 });
 
-export const getRecipients = async (params = {}) => {
+export const getRollingPaperMessage = async (params) => {
+  const { id } = params;
   const res = await instance
-    .get("/recipients/", {
-      params,
-    })
+    .get(`/recipients/${id}/messages/`)
     .catch(function (error) {
       if (error.response) {
         // 요청이 전송되었고, 서버는 2xx 외의 상태 코드로 응답했습니다.

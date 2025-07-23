@@ -1,0 +1,8 @@
+.card-list-container {
+  margin: 0 auto;
+  padding: 126px 0;
+  width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
