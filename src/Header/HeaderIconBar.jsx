@@ -1,16 +1,19 @@
 import { useState } from "react";
-import PropTypes from "prop-types";
+import EmojiPickerLib from "emoji-picker-react";
 import AddEmoji from "../assets/header_add_img.png";
 import ShowEmoji from "../assets/header_showEmojis_img.png";
-import ShareImg from "../assets/header_share_img.png";
+import ShareImg from "../assets/header_share_img2.png";
 import toastImg from "../assets/toast_img.png";
 import IconBarStyles from "./HeaderIconBar.module.css";
 
-const HeaderIconBar = ({ name, writers, emojis, addEmoji }) => {
-  const sortedEmojis = [...emojis].sort((a, b) => b.count - a.count);
+const HeaderIconBar = ({ name, writers, profileImgUrl, emojis }) => {
   const [showEmojis, setShowEmojis] = useState(false);
   const [shareUrl, setShareUrl] = useState(false);
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [isToastVisible, setIsToastVisible] = useState(false);
+  const sortedEmojis = Array.isArray(emojis)
+    ? [...emojis].sort((a, b) => b.count - a.count)
+    : [];
 
   const ToggleEmojis = () => {
     setShowEmojis((prev) => !prev);
@@ -20,10 +23,14 @@ const HeaderIconBar = ({ name, writers, emojis, addEmoji }) => {
     setShareUrl((prev) => !prev);
   };
 
+  const ToggleEmojiPicker = () => {
+    setShowEmojiPicker((prev) => !prev);
+  };
+
   const handleClick = (e) => {
     e.stopPropagation();
     setIsToastVisible(true);
-    setTimeout(() => setIsToastVisible(false), 3000);
+    setTimeout(() => setIsToastVisible(false), 5000);
   };
 
   return (
@@ -34,32 +41,34 @@ const HeaderIconBar = ({ name, writers, emojis, addEmoji }) => {
       <div className={IconBarStyles.right}>
         <div className={IconBarStyles.writers}>
           <div className={IconBarStyles.writersAvatar}>
-            {writers.slice(0, 3).map((user) => (
-              <img
-                key={user.id}
-                src={user.avatar}
-                alt={user.name}
-                className={IconBarStyles.avatar}
-              />
-            ))}
+            {[...Array((0, Math.min(Number(writers) || 0, 3)))].map(
+              (_, idx) => (
+                <img
+                  key={idx}
+                  src={profileImgUrl}
+                  alt={name}
+                  className={IconBarStyles.avatar}
+                />
+              )
+            )}
             <div className={IconBarStyles.writersCount}>
-              {writers.length > 3 && (
+              {writers > 3 && (
                 <span className={IconBarStyles.writersPlus}>
-                  + {writers.length - 3}
+                  + {writers - 3}
                 </span>
               )}
             </div>
           </div>
           <span className={IconBarStyles.writersText}>
-            <strong>{writers.length}</strong>명이 작성했어요!
+            <strong>{writers}</strong>명이 작성했어요!
           </span>
         </div>
         <div className={IconBarStyles.dividerFirst}></div>
 
         <div className={IconBarStyles.emojis}>
-          {sortedEmojis.slice(0, 3).map((emoji) => (
-            <span key={emoji.symbol} className={IconBarStyles.emojiItems}>
-              {emoji.symbol} {emoji.count}
+          {sortedEmojis.slice(0, 3).map((emojis) => (
+            <span key={emojis.symbol} className={IconBarStyles.emojiItems}>
+              {emojis.emoji} {emojis.count}
             </span>
           ))}
         </div>
@@ -69,44 +78,54 @@ const HeaderIconBar = ({ name, writers, emojis, addEmoji }) => {
             <div className={IconBarStyles.toggleEmojiBox}>
               {sortedEmojis.slice(0, 8).map((emojis) => (
                 <span
-                  key={emojis.symbol}
+                  key={emojis.emoji}
                   className={IconBarStyles.toggleEmojiItems}
                 >
-                  {emojis.symbol} {emojis.count}
+                  {emojis.emoji} {emojis.count}
                 </span>
               ))}
             </div>
           )}
         </div>
         <div>
-          <button className={IconBarStyles.addEmoji} onClick={addEmoji}>
+          <button
+            type="button"
+            className={IconBarStyles.addEmoji}
+            onClick={ToggleEmojiPicker}
+          >
             <img src={AddEmoji} alt="추가하기" />
-            추가
+            <span className={IconBarStyles.addText}>추가</span>
           </button>
+          {showEmojiPicker && (
+            <div className={IconBarStyles.emojiPicker}>
+              <EmojiPickerLib onEmojiClick={(emoji) => console.log(emoji)} />
+            </div>
+          )}
         </div>
         <div className={IconBarStyles.dividerSecond}></div>
         <div>
-          <div className={IconBarStyles.shareWrapper} onClick={ToggleShare}>
-            <img src={ShareImg} alt="공유하기" />
+          <div>
+            <img
+              src={ShareImg}
+              className={IconBarStyles.shareWrapper}
+              onClick={ToggleShare}
+              alt="공유하기"
+            />
             {shareUrl && (
               <div className={IconBarStyles.shareUrl}>
-                <span className={IconBarStyles.shareUrlText}>
-                  <div className={IconBarStyles.shareUrlTitle}>
-                    카카오톡 공유
+                <div className={IconBarStyles.shareUrlTitle}>카카오톡 공유</div>
+                <div
+                  className={IconBarStyles.shareUrlTitle}
+                  onClick={handleClick}
+                >
+                  URL 공유
+                </div>
+                {isToastVisible && (
+                  <div className={IconBarStyles.toast}>
+                    <img src={toastImg} alt="URL주소복사" />
+                    URL이 복사되었습니다.
                   </div>
-                  <div
-                    className={IconBarStyles.shareUrlTitle}
-                    onClick={handleClick}
-                  >
-                    URL 공유
-                  </div>
-                  {isToastVisible && (
-                    <div className={IconBarStyles.toast}>
-                      <img src={toastImg} alt="URL주소복사" />
-                      URL이 복사되었습니다.
-                    </div>
-                  )}
-                </span>
+                )}
               </div>
             )}
           </div>
@@ -114,12 +133,6 @@ const HeaderIconBar = ({ name, writers, emojis, addEmoji }) => {
       </div>
     </div>
   );
-};
-
-//타입 안전성 추가
-HeaderIconBar.propTypes = {
-  name: PropTypes.string.isRequired,
-  // 다른 항목은 기능 구현하면서 추가 예정
 };
 
 export default HeaderIconBar;
