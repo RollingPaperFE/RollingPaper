@@ -21,3 +21,27 @@
   align-items: start;
   gap: 24px;
 }
+
+@media (max-width: 768px) {
+  .card-list-container {
+    grid-template-columns: repeat(2, 352px);
+    gap: 16px;
+  }
+
+  .editor-link-btn {
+    bottom: 30px;
+    right: 30px;
+  }
+}
+
+@media (max-width: 360px) {
+  .card-list-container {
+    grid-template-columns: repeat(1, 320px);
+    gap: 16px;
+  }
+
+  .editor-link-btn {
+    bottom: 30px;
+    right: 10px;
+  }
+}
