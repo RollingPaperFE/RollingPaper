@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/Home/HomePage";
 import BestAndNewestListPage from "./pages/BestAndNewest/BestAndNewestListPage";
 import RollingPaperListPage from "./pages/RollingPaperList/RollingPaperListPage";
-import SendMessagePage from "./SendMessagePage";
+import SendMessagePage from "./pages/SendRollingPaper/SendMessagePage";
 import RollingWrite from "./pages/RollingWrite/RollingWrite";
 
 const App = () => {

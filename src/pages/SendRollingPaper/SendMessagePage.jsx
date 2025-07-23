@@ -5,7 +5,7 @@ import FontSelector from "./FontSelector";
 import SendMessageButton from "./SendMessageButton";
 import styles from "./SendMessagePage.module.css";
 import React, { useState, useEffect, useRef } from "react";
-import HeaderButton from "./Header/HeaderButton";
+import HeaderButton from "../../Header/HeaderButton";
 import ProfileImageSelector from "./ProfileImageSelector";
 
 const SendMessagePage = ({ externalData, onSubmit }) => {
@@ -60,10 +60,12 @@ const SendMessagePage = ({ externalData, onSubmit }) => {
             onChange={(value) => handleChange("sender", value)}
           />
         </div>
-        <div><ProfileImageSelector
-          value={messageData.profileImageURL}
-          onchange={(value) => handleChange("profileImageURL", value)}
-        /></div>
+        <div>
+          <ProfileImageSelector
+            value={messageData.profileImageURL}
+            onchange={(value) => handleChange("profileImageURL", value)}
+          />
+        </div>
         <div>
           <RelationshipSelector
             value={messageData.relationship}
