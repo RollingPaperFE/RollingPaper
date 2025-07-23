@@ -1,16 +1,15 @@
 import HeaderButton from "./HeaderButton";
 import HeaderIconBar from "./HeaderIconBar";
 
-const Header = ({ name, writers, profileImgUrl, emojis }) => {
+const Header = ({ name, writers, profileImgUrls, emojis }) => {
   return (
     <header>
       <HeaderButton isMake={false} />
       <HeaderIconBar
         name={name}
         writers={writers}
-        profileImgUrl={profileImgUrl}
+        profileImgUrls={profileImgUrls}
         emojis={emojis}
-        // addEmoji={addEmoji}
       />
     </header>
   );
