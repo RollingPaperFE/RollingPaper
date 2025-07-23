@@ -14,3 +14,12 @@ export const getRecipientByReactions = async (id) => {
   const res = await instance.get(`/recipients/${id}/reactions/`);
   return res.data;
 };
+
+export const postRecipientReaction = async (id, reaction) => {
+  console.log({ reaction });
+  const res = await instance.post(`/recipients/${id}/reactions/`, {
+    emoji: reaction,
+    type: "increase",
+  });
+  return res.data;
+};

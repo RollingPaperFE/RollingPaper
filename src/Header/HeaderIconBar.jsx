@@ -6,7 +6,13 @@ import ShareImg from "../assets/header_share_img2.png";
 import toastImg from "../assets/toast_img.png";
 import IconBarStyles from "./HeaderIconBar.module.css";
 
-const HeaderIconBar = ({ name, writers, profileImgUrls, emojis }) => {
+const HeaderIconBar = ({
+  name,
+  writers,
+  profileImgUrls,
+  emojis,
+  handleUpdateReactions,
+}) => {
   const [showEmojis, setShowEmojis] = useState(false);
   const [shareUrl, setShareUrl] = useState(false);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
@@ -14,6 +20,7 @@ const HeaderIconBar = ({ name, writers, profileImgUrls, emojis }) => {
   const sortedEmojis = Array.isArray(emojis)
     ? [...emojis].sort((a, b) => b.count - a.count)
     : [];
+  // const [emojiClick, setEmojiClick] = useState(sortedEmojis);
 
   const ToggleEmojis = () => {
     setShowEmojis((prev) => !prev);
@@ -98,7 +105,7 @@ const HeaderIconBar = ({ name, writers, profileImgUrls, emojis }) => {
           <EmojiPickerLib
             open={showEmojiPicker}
             onClose={ToggleEmojiPicker}
-            onEmojiClick={(emoji) => console.log(emoji)}
+            onEmojiClick={(emojiInfo) => handleUpdateReactions(emojiInfo.emoji)}
             className={IconBarStyles.emojiPicker}
             style={{ position: "absolute", top: "43px", left: "-270px" }}
           />

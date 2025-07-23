@@ -1,7 +1,13 @@
 import HeaderButton from "./HeaderButton";
 import HeaderIconBar from "./HeaderIconBar";
 
-const Header = ({ name, writers, profileImgUrls, emojis }) => {
+const Header = ({
+  name,
+  writers,
+  profileImgUrls,
+  emojis,
+  handleUpdateReactions,
+}) => {
   return (
     <header>
       <HeaderButton isMake={false} />
@@ -10,6 +16,7 @@ const Header = ({ name, writers, profileImgUrls, emojis }) => {
         writers={writers}
         profileImgUrls={profileImgUrls}
         emojis={emojis}
+        handleUpdateReactions={handleUpdateReactions}
       />
     </header>
   );
