@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getRecipientById } from "../api/recipientsListApi.js";
+import { getRecipientById } from "../apis/recipientId";
 
 export const useRecipientById = (id) => {
   const [recipients, setRecipients] = useState([]);
