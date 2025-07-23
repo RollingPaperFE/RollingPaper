@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useRecipientById } from "../../Header/HeaderIconBarContainer";
 import { useRollingPaper } from "./useRollingPaper";
+import { useState, useEffect } from "react";
 import RollingPaperCard from "./RollingPaperCard";
 import rollingListStyle from "./RollingPaperListPage.module.css";
 import HeaderContainer from "../../Header/HeaderApi";
@@ -16,9 +17,25 @@ const RollingPaperListPage = () => {
   const { id } = useParams();
   const data = useRollingPaper(id);
   const { rollingPaper, error } = data;
-  const { results } = rollingPaper;
+  // const { results } = rollingPaper; // #37 생성된 롤링페이퍼 페이지 삭제
   const { recipients } = useRecipientById(id);
   const { backgroundColor, backgroundImageURL } = recipients;
+
+  const [showCreateCard, setShowCreateCard] = useState(true); // #37 생성된 롤링페이퍼 페이지 삭제
+
+  // #37 생성된 롤링페이퍼 페이지 삭제
+  const handleDeleteButton = (e) => {
+    e.preventDefault();
+    setShowCreateCard((prev) => !prev);
+  };
+
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    if (rollingPaper.results) {
+      setResults(rollingPaper.results);
+    }
+  }, [rollingPaper]);
 
   return (
     <>
@@ -38,16 +55,28 @@ const RollingPaperListPage = () => {
           minHeight: "100vh",
         }}
       >
-        <Link to={""} className={rollingListStyle["editor-link-btn"]}>
+        <Link
+          to={""}
+          className={rollingListStyle["editor-link-btn"]}
+          onClick={handleDeleteButton} // #37 생성된 롤링페이퍼 페이지 삭제
+        >
           <span className="material-icons">delete</span>
         </Link>
         <div className={rollingListStyle["card-list-container"]}>
-          <Link to={`/post/${id}/message`}>
-            <RollingPaperCard isCreate={true} />
-          </Link>
+          {showCreateCard && ( // #37 생성된 롤링페이퍼 페이지 삭제
+            <Link to={`/post/${id}/message`}>
+              <RollingPaperCard isCreate={true} />
+            </Link>
+          )}
           {results &&
             results.map((result) => (
-              <RollingPaperCard key={result.id} error={error} result={result} />
+              <RollingPaperCard
+                key={result.id}
+                isDelete={!showCreateCard} // #37 생성된 롤링페이퍼 페이지 삭제
+                error={error}
+                result={result}
+                setMessages={setResults}
+              />
             ))}
         </div>
       </div>
