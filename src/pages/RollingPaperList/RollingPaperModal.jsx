@@ -51,7 +51,10 @@ const RollingPaperModal = ({ isOpen, handleModalClose, result }) => {
             {changeDate(createdAt)}
           </div>
         </div>
-        <div className={modalStyle["modal-content"]}>{content}</div>
+        <div
+          className={modalStyle["modal-content"]}
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
         <button className={modalStyle["modal-btn"]} onClick={handleModalClose}>
           확인
         </button>

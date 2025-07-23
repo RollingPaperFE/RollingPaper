@@ -75,15 +75,7 @@ const RecipientCard = ({
           ></div>
           <img
             src={colorDesignImage[backgroundColor]}
-            style={{
-              position: "absolute",
-              width: "142px",
-              height: "142px",
-              zIndex: "1",
-              borderBottomRightRadius: "16px",
-              top: "118px",
-              left: "133px",
-            }}
+            className={cardStyle["side-img"]}
           ></img>
         </>
       )}
