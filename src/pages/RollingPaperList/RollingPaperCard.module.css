@@ -104,3 +104,37 @@
   letter-spacing: -0.5px;
   color: var(--grayscale-400);
 }
+
+@media (max-width: 768px) {
+  .create-btn-container,
+  .card-container {
+    width: 352px;
+    height: 284px;
+  }
+
+  .card-container {
+    padding: 28px 24px;
+  }
+
+  .card-content {
+    width: 304px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 360px) {
+  .create-btn-container,
+  .card-container {
+    width: 320px;
+    height: 230px;
+  }
+
+  .card-container {
+    padding: 32px 20px;
+  }
+
+  .card-content {
+    width: 272px;
+    height: 56px;
+  }
+}
