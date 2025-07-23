@@ -20,7 +20,6 @@ const HeaderIconBar = ({
   const sortedEmojis = Array.isArray(emojis)
     ? [...emojis].sort((a, b) => b.count - a.count)
     : [];
-  // const [emojiClick, setEmojiClick] = useState(sortedEmojis);
 
   const ToggleEmojis = () => {
     setShowEmojis((prev) => !prev);
@@ -38,6 +37,12 @@ const HeaderIconBar = ({
     e.stopPropagation();
     setIsToastVisible(true);
     setTimeout(() => setIsToastVisible(false), 5000);
+  };
+
+  const handleClickShareKakao = () => {
+    window.Kakao.Share.sendScrap({
+      requestUrl: "http://localhost:5173", // 스크랩 할 URL 입력
+    });
   };
 
   return (
@@ -122,7 +127,12 @@ const HeaderIconBar = ({
             />
             {shareUrl && (
               <div className={IconBarStyles.shareUrl}>
-                <div className={IconBarStyles.shareUrlTitle}>카카오톡 공유</div>
+                <div
+                  className={IconBarStyles.shareUrlTitle}
+                  onClick={handleClickShareKakao}
+                >
+                  카카오톡 공유
+                </div>
                 <div
                   className={IconBarStyles.shareUrlTitle}
                   onClick={handleClick}
