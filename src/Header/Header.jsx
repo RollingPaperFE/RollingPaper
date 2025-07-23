@@ -4,7 +4,7 @@ import HeaderIconBar from "./HeaderIconBar";
 const Header = ({ name, writers, profileImgUrl, emojis }) => {
   return (
     <header>
-      <HeaderButton isMake={true} />
+      <HeaderButton isMake={false} />
       <HeaderIconBar
         name={name}
         writers={writers}
