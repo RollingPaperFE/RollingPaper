@@ -15,8 +15,7 @@
 
 .card-list {
   display: flex;
-  margin: 0 auto;
-  width: 1160px;
+  padding: 0 20px;
   height: 260px;
   gap: 20px;
 }
@@ -31,6 +30,11 @@
     overflow: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  .card-list {
+    max-width: 768px;
+    width: 100%;
   }
 
   .list-scrollable::-webkit-scrollbar {
@@ -48,9 +52,5 @@
     padding-left: 20px;
     font-weight: 600;
     font-size: 20px;
-  }
-
-  .card-list {
-    width: 868px;
   }
 }

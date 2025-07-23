@@ -37,5 +37,6 @@
   left: 51px;
   z-index: 3;
   border-radius: 30px;
+  color: var(--grayscale-500);
   background-color: var(--white);
 }

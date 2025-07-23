@@ -1,6 +1,7 @@
 import CardEmojiItem from "./CardEmojiItem";
 import WriterProfileImageList from "./WriterProfileImageList";
 import cardStyle from "./RecipientCard.module.css";
+import { Link } from "react-router-dom";
 
 const backgroundColorList = {
   beige: cardStyle["bg-beige"],
@@ -17,6 +18,7 @@ const colorDesignImage = {
 };
 
 const RecipientCard = ({
+  id,
   name,
   messageCount,
   recentMessages,
@@ -85,31 +87,32 @@ const RecipientCard = ({
           ></img>
         </>
       )}
-
-      <div className={cardStyle["card-container"]}>
-        <div className={cardStyle["card-content"]}>
-          <h3
-            className={`${cardStyle["name-text"]} ${nameTextClassName}`}
-          >{`To. ${name}`}</h3>
-          {messageCount !== 0 && (
-            <WriterProfileImageList
-              recentMessages={recentMessages}
-              messageCount={messageCount}
-            />
-          )}
-          <p
-            className={`${cardStyle["posted-count-text"]} ${postedCountTextClassName}`}
-          >
-            <b>{messageCount}</b>명이 작성했어요!
-          </p>
-        </div>
-        {reactionCount !== 0 && (
-          <div className={cardStyle["card-emoji-container"]}>
-            {topReactions &&
-              topReactions.map((tr) => <CardEmojiItem key={tr.id} {...tr} />)}
+      <Link to={`/post/${id}`} className={cardStyle["card-link"]}>
+        <div className={cardStyle["card-container"]}>
+          <div className={cardStyle["card-content"]}>
+            <h3
+              className={`${cardStyle["name-text"]} ${nameTextClassName}`}
+            >{`To. ${name}`}</h3>
+            {messageCount !== 0 && (
+              <WriterProfileImageList
+                recentMessages={recentMessages}
+                messageCount={messageCount}
+              />
+            )}
+            <p
+              className={`${cardStyle["posted-count-text"]} ${postedCountTextClassName}`}
+            >
+              <b>{messageCount}</b>명이 작성했어요!
+            </p>
           </div>
-        )}
-      </div>
+          {reactionCount !== 0 && (
+            <div className={cardStyle["card-emoji-container"]}>
+              {topReactions &&
+                topReactions.map((tr) => <CardEmojiItem key={tr.id} {...tr} />)}
+            </div>
+          )}
+        </div>
+      </Link>
     </div>
   );
 };
