@@ -41,8 +41,6 @@ const HeaderIconBar = ({ name, writers, profileImgUrls, emojis }) => {
       <div className={IconBarStyles.right}>
         <div className={IconBarStyles.writers}>
           <div className={IconBarStyles.writersAvatar}>
-            {/* {[...Array((0, Math.min(Number(writers) || 0, 3)))].map(
-              (_, idx) => ( */}
             {profileImgUrls.slice(0, 3).map((url, idx) => (
               <img
                 key={idx}
@@ -64,7 +62,6 @@ const HeaderIconBar = ({ name, writers, profileImgUrls, emojis }) => {
           </span>
         </div>
         <div className={IconBarStyles.dividerFirst}></div>
-
         <div className={IconBarStyles.emojis}>
           {sortedEmojis.slice(0, 3).map((emojis) => (
             <span key={emojis.emoji} className={IconBarStyles.emojiItems}>
@@ -87,7 +84,7 @@ const HeaderIconBar = ({ name, writers, profileImgUrls, emojis }) => {
             </div>
           )}
         </div>
-        <div>
+        <div style={{ position: "relative" }}>
           <button
             type="button"
             className={IconBarStyles.addEmoji}
@@ -96,12 +93,16 @@ const HeaderIconBar = ({ name, writers, profileImgUrls, emojis }) => {
             <img src={AddEmoji} alt="추가하기" />
             <span className={IconBarStyles.addText}>추가</span>
           </button>
-          {showEmojiPicker && (
-            <div className={IconBarStyles.emojiPicker}>
-              <EmojiPickerLib onEmojiClick={(emoji) => console.log(emoji)} />
-            </div>
-          )}
+
+          <EmojiPickerLib
+            open={showEmojiPicker}
+            onClose={ToggleEmojiPicker}
+            onEmojiClick={(emoji) => console.log(emoji)}
+            className={IconBarStyles.emojiPicker}
+            style={{ position: "absolute", top: "43px", left: "-270px" }}
+          />
         </div>
+
         <div className={IconBarStyles.dividerSecond}></div>
         <div>
           <div>
