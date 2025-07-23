@@ -6,7 +6,11 @@ const instance = axios.create({
 });
 
 export const getRecipientById = async (id) => {
-  // const res = await instance.get(`/recipients/?id=${id}`);
   const res = await instance.get(`/recipients/${id}/`);
+  return res.data;
+};
+
+export const getRecipientByReactions = async (id) => {
+  const res = await instance.get(`/recipients/${id}/reactions/`);
   return res.data;
 };
