@@ -109,12 +109,12 @@
   width: 312px;
   height: 134px;
   position: absolute;
-  top: 36px; /* 이미지 아래로 위치시킴 */
-  right: 0; /* 부모 요소에 붙도록 설정 */
+  top: 36px;
+  right: 0;
   background-color: #ffffff;
   border-radius: 10px;
   border: 1px solid #b6b6b6;
-  z-index: 999; /* 다른 페이지보다 위에 있어야 하기 때문에 안전성 ! */
+  z-index: 999;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   place-items: center;
@@ -162,26 +162,18 @@
 
 .emojiPicker {
   position: relative;
-  display: inline-block;
   top: 250px;
+  right: 390px;
   z-index: 999;
 }
 
 .shareWrapper {
-  /* background-color: #ffffff;
-  border-radius: 6px;
-  border: 1px solid #cccccc; */
   width: 56px;
   height: 36px;
   cursor: pointer;
   margin-top: 4px;
-  /* padding: 6px 16px; */
   position: relative;
 }
-
-/* .shareWrapper:hover {
-  background-color: #f2f2f2;
-} */
 
 .shareUrl {
   width: 140px;
@@ -196,7 +188,6 @@
   display: grid;
   grid-template-columns: repeat(1fr);
   place-items: center;
-  /* padding: 10px 1px; */
 }
 
 .shareUrlTitle {
