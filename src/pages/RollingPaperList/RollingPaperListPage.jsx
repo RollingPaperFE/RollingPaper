@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useRecipientById } from "../../Header/HeaderIconBarContainer";
 import { useRollingPaper } from "./useRollingPaper";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import RollingPaperCard from "./RollingPaperCard";
 import rollingListStyle from "./RollingPaperListPage.module.css";
 import HeaderContainer from "../../Header/HeaderApi";
@@ -17,17 +17,25 @@ const RollingPaperListPage = () => {
   const { id } = useParams();
   const data = useRollingPaper(id);
   const { rollingPaper, error } = data;
-  const { results } = rollingPaper;
+  // const { results } = rollingPaper; // #37 생성된 롤링페이퍼 페이지 삭제
   const { recipients } = useRecipientById(id);
   const { backgroundColor, backgroundImageURL } = recipients;
 
   const [showCreateCard, setShowCreateCard] = useState(true); // #37 생성된 롤링페이퍼 페이지 삭제
 
   // #37 생성된 롤링페이퍼 페이지 삭제
-  const handleDeleteClick = (e) => {
+  const handleDeleteButton = (e) => {
     e.preventDefault();
     setShowCreateCard((prev) => !prev);
   };
+
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    if (rollingPaper.results) {
+      setResults(rollingPaper.results);
+    }
+  }, [rollingPaper]);
 
   return (
     <>
@@ -50,7 +58,7 @@ const RollingPaperListPage = () => {
         <Link
           to={""}
           className={rollingListStyle["editor-link-btn"]}
-          onClick={handleDeleteClick} // #37 생성된 롤링페이퍼 페이지 삭제
+          onClick={handleDeleteButton} // #37 생성된 롤링페이퍼 페이지 삭제
         >
           <span className="material-icons">delete</span>
         </Link>
@@ -62,7 +70,13 @@ const RollingPaperListPage = () => {
           )}
           {results &&
             results.map((result) => (
-              <RollingPaperCard key={result.id} error={error} result={result} />
+              <RollingPaperCard
+                key={result.id}
+                isDelete={!showCreateCard} // #37 생성된 롤링페이퍼 페이지 삭제
+                error={error}
+                result={result}
+                setMessages={setResults}
+              />
             ))}
         </div>
       </div>
