@@ -67,7 +67,7 @@ const HeaderIconBar = ({ name, writers, profileImgUrl, emojis }) => {
 
         <div className={IconBarStyles.emojis}>
           {sortedEmojis.slice(0, 3).map((emojis) => (
-            <span key={emojis.symbol} className={IconBarStyles.emojiItems}>
+            <span key={emojis.emoji} className={IconBarStyles.emojiItems}>
               {emojis.emoji} {emojis.count}
             </span>
           ))}
