@@ -4,7 +4,7 @@ import Header from "./Header";
 
 const HeaderContainer = ({ id }) => {
   const { recipients, error } = useRecipientById(id);
-  const { reactions } = useRecipientByReactions(id);
+  const { reactions, handleUpdateReactions } = useRecipientByReactions(id);
 
   if (error) {
     return <div>error</div>;
@@ -20,6 +20,7 @@ const HeaderContainer = ({ id }) => {
       writers={recipients.messageCount}
       profileImgUrls={profileImgUrls}
       emojis={reactions.results}
+      handleUpdateReactions={handleUpdateReactions}
     />
   ) : null;
 };
