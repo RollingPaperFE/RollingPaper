@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { changeDate } from "../../utils/changeDate";
+import RollingPaperModal from "../RollingPaperList/RollingPaperModal";
 import cardStyle from "./RollingPaperCard.module.css";
 import createBtn from "../../assets/newMessageButton.png";
 
@@ -9,13 +11,12 @@ const relationList = {
   동료: cardStyle["coworker"],
 };
 
-const RollingPaperCard = ({
-  isCreate,
-  error,
-  result = {},
-  handleModalOpen,
-}) => {
+const RollingPaperCard = ({ isCreate, error, result = {} }) => {
   const { profileImageURL, sender, relationship, createdAt, content } = result;
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleModalOpen = () => setIsOpen(true);
+  const handleModalClose = () => setIsOpen(false);
 
   return (
     <>
@@ -59,6 +60,11 @@ const RollingPaperCard = ({
               </div>
             </div>
           )}
+          <RollingPaperModal
+            isOpen={isOpen}
+            handleModalClose={handleModalClose}
+            result={result}
+          />
         </>
       )}
     </>
