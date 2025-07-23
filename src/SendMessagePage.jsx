@@ -5,6 +5,7 @@ import FontSelector from "./FontSelector";
 import SendMessageButton from "./SendMessageButton";
 import styles from "./SendMessagePage.module.css";
 import React, { useState, useEffect, useRef } from "react";
+import HeaderButton from "./Header/HeaderButton";
 
 const SendMessagePage = ({ externalData, onSubmit }) => {
   const idRef = useRef(Date.now()); // 고정된 메시지 ID 생성
@@ -49,36 +50,39 @@ const SendMessagePage = ({ externalData, onSubmit }) => {
   if (!messageData) return <div>로딩 중...</div>;
 
   return (
-    <div className={styles.SendMessagePage}>
-      <div>
-        <SenderFormField
-          value={messageData.sender}
-          onChange={(value) => handleChange("sender", value)}
-        />
+    <>
+      <HeaderButton isMake={false} />
+      <div className={styles.SendMessagePage}>
+        <div>
+          <SenderFormField
+            value={messageData.sender}
+            onChange={(value) => handleChange("sender", value)}
+          />
+        </div>
+        <div>프로필 이미지</div>
+        <div>
+          <RelationshipSelector
+            value={messageData.relationship}
+            onChange={(value) => handleChange("relationship", value)}
+          />
+        </div>
+        <div>
+          <SendMessageContent
+            value={messageData.content}
+            onChange={(value) => handleChange("content", value)}
+          />
+        </div>
+        <div>
+          <FontSelector
+            value={messageData.font}
+            onChange={(value) => handleChange("font", value)}
+          />
+        </div>
+        <div>
+          <SendMessageButton onClick={handleSave} />
+        </div>
       </div>
-      <div>프로필 이미지</div>
-      <div>
-        <RelationshipSelector
-          value={messageData.relationship}
-          onChange={(value) => handleChange("relationship", value)}
-        />
-      </div>
-      <div>
-        <SendMessageContent
-          value={messageData.content}
-          onChange={(value) => handleChange("content", value)}
-        />
-      </div>
-      <div>
-        <FontSelector
-          value={messageData.font}
-          onChange={(value) => handleChange("font", value)}
-        />
-      </div>
-      <div>
-        <SendMessageButton onClick={handleSave} />
-      </div>
-    </div>
+    </>
   );
 };
 
