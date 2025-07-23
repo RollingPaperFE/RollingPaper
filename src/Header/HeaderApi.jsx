@@ -10,13 +10,16 @@ const HeaderContainer = ({ id }) => {
     return <div>error</div>;
   }
 
+  const profileImgUrls = recipients.recentMessages?.map(
+    (msg) => msg.profileImageURL
+  );
+
   return recipients.id ? (
     <Header
       name={recipients.name}
       writers={recipients.messageCount}
-      profileImgUr={recipients.recentMessages}
+      profileImgUrls={profileImgUrls}
       emojis={reactions.results}
-      // addEmoji={() => {}}
     />
   ) : null;
 };

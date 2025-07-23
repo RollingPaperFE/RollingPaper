@@ -6,7 +6,7 @@ import ShareImg from "../assets/header_share_img2.png";
 import toastImg from "../assets/toast_img.png";
 import IconBarStyles from "./HeaderIconBar.module.css";
 
-const HeaderIconBar = ({ name, writers, profileImgUrl, emojis }) => {
+const HeaderIconBar = ({ name, writers, profileImgUrls, emojis }) => {
   const [showEmojis, setShowEmojis] = useState(false);
   const [shareUrl, setShareUrl] = useState(false);
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
@@ -41,16 +41,16 @@ const HeaderIconBar = ({ name, writers, profileImgUrl, emojis }) => {
       <div className={IconBarStyles.right}>
         <div className={IconBarStyles.writers}>
           <div className={IconBarStyles.writersAvatar}>
-            {[...Array((0, Math.min(Number(writers) || 0, 3)))].map(
-              (_, idx) => (
-                <img
-                  key={idx}
-                  src={profileImgUrl}
-                  alt={name}
-                  className={IconBarStyles.avatar}
-                />
-              )
-            )}
+            {/* {[...Array((0, Math.min(Number(writers) || 0, 3)))].map(
+              (_, idx) => ( */}
+            {profileImgUrls.slice(0, 3).map((url, idx) => (
+              <img
+                key={idx}
+                src={url}
+                alt={`writer-${idx}`}
+                className={IconBarStyles.avatar}
+              />
+            ))}
             <div className={IconBarStyles.writersCount}>
               {writers > 3 && (
                 <span className={IconBarStyles.writersPlus}>
