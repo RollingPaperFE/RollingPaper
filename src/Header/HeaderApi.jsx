@@ -14,7 +14,7 @@ const HeaderContainer = ({ id }) => {
     <Header
       name={recipients.name}
       writers={recipients.messageCount}
-      profileImgUr={recipients.profileImgUrl}
+      profileImgUr={recipients.recentMessages}
       emojis={reactions.results}
       // addEmoji={() => {}}
     />
