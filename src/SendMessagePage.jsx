@@ -6,6 +6,7 @@ import SendMessageButton from "./SendMessageButton";
 import styles from "./SendMessagePage.module.css";
 import React, { useState, useEffect, useRef } from "react";
 import HeaderButton from "./Header/HeaderButton";
+import ProfileImageSelector from "./ProfileImageSelector";
 
 const SendMessagePage = ({ externalData, onSubmit }) => {
   const idRef = useRef(Date.now()); // 고정된 메시지 ID 생성
@@ -59,7 +60,10 @@ const SendMessagePage = ({ externalData, onSubmit }) => {
             onChange={(value) => handleChange("sender", value)}
           />
         </div>
-        <div>프로필 이미지</div>
+        <div><ProfileImageSelector
+          value={messageData.profileImageURL}
+          onchange={(value) => handleChange("profileImageURL", value)}
+        /></div>
         <div>
           <RelationshipSelector
             value={messageData.relationship}
