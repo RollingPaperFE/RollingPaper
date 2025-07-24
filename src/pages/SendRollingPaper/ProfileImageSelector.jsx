@@ -42,11 +42,7 @@ const ProfileImageSelector = ({ value = "", onChange }) => {
     <div className={styles.ProfileImageSelector}>
       <h2 className={styles.title}>프로필 이미지</h2>
       <div className={styles.selectorWrapper}>
-        <img
-          className={styles.selectedImage}
-          src={selectedImage}
-          alt="선택된 프로필"
-        />
+        <img className={styles.selectedImage} src={selectedImage} />
 
         <div className={styles.imageArea}>
           <div className={styles.description}>
