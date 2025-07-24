@@ -16,7 +16,7 @@ const backgroundColorList = {
 const RollingPaperListPage = () => {
   const { id } = useParams();
   const data = useRollingPaper(id);
-  const { rollingPaper, error } = data;
+  const { rollingPaper, error, ref } = data;
   // const { results } = rollingPaper; // #37 생성된 롤링페이퍼 페이지 삭제
   const { recipients } = useRecipientById(id);
   const { backgroundColor, backgroundImageURL } = recipients;
@@ -32,8 +32,8 @@ const RollingPaperListPage = () => {
   const [results, setResults] = useState([]);
 
   useEffect(() => {
-    if (rollingPaper.results) {
-      setResults(rollingPaper.results);
+    if (rollingPaper) {
+      setResults(rollingPaper);
     }
   }, [rollingPaper]);
 
@@ -79,6 +79,7 @@ const RollingPaperListPage = () => {
               />
             ))}
         </div>
+        <div ref={ref}></div>
       </div>
     </>
   );
