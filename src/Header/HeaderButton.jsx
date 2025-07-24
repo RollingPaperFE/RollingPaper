@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import globalStyle from "./global.module.css";
 import headerButtonStyle from "./HeaderButton.module.css";
-import LogoImg from "../assets/header_logo_img.png";
+import LogoImg from "../../public/assets/header_logo_img.png";
 
 const HeaderButton = ({ isMake }) => {
   return (

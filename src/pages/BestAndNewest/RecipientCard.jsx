@@ -11,10 +11,10 @@ const backgroundColorList = {
 };
 
 const colorDesignImage = {
-  beige: "src/assets/pattern_beige.png",
-  purple: "src/assets/pattern_purple.png",
-  blue: "src/assets/pattern_blue.png",
-  green: "src/assets/pattern_green.png",
+  beige: "public/assets/pattern_beige.png",
+  purple: "public/assets/pattern_purple.png",
+  blue: "public/assets/pattern_blue.png",
+  green: "public/assets/pattern_green.png",
 };
 
 const RecipientCard = ({

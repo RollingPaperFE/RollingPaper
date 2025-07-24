@@ -3,8 +3,8 @@ import { changeDate } from "../../utils/changeDate";
 import axios from "axios";
 import RollingPaperModal from "../RollingPaperList/RollingPaperModal";
 import cardStyle from "./RollingPaperCard.module.css";
-import createBtn from "../../assets/newMessageButton.png";
-import deleteBtn from "../../assets/deleteMessageButton.png";
+import createBtn from "../../../public/assets/newMessageButton.png";
+import deleteBtn from "../../../public/assets/deleteMessageButton.png";
 
 const relationList = {
   가족: cardStyle["family"],
