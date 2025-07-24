@@ -1,9 +1,9 @@
 import { useState } from "react";
 import EmojiPickerLib from "emoji-picker-react";
-import AddEmoji from "../../public/assets/header_add_img.png";
-import ShowEmoji from "../../public/assets/header_showEmojis_img.png";
-import ShareImg from "../../public/assets/header_share_img2.png";
-import toastImg from "../../public/assets/toast_img.png";
+import AddEmoji from "/assets/header_add_img.png";
+import ShowEmoji from "/assets/header_showEmojis_img.png";
+import ShareImg from "/assets/header_share_img2.png";
+import toastImg from "/assets/toast_img.png";
 import IconBarStyles from "./HeaderIconBar.module.css";
 
 const HeaderIconBar = ({
