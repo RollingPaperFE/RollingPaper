@@ -23,7 +23,7 @@ const bannerList = [
 const HomePage = () => {
   return (
     <>
-      <HeaderButton isMake={true} />
+      <HeaderButton isMake={true} isShow={true} />
       <div className={homeStyle["homepage"]}>
         <HomeBanner {...bannerList[0]} />
         <HomeBanner {...bannerList[1]} />

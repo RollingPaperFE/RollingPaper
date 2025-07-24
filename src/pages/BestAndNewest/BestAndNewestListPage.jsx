@@ -6,7 +6,7 @@ import HeaderButton from "../../Header/HeaderButton";
 const BestAndNewestListPage = () => {
   return (
     <>
-      <HeaderButton isMake={true} />
+      <HeaderButton isMake={true} isShow={true} />
       <div className={bestAndNewestStyle["list-page"]}>
         <RecipientCardList title={"인기 롤링 페이퍼 🔥"} sort={"like"} />
         <RecipientCardList title={"최근에 만든 롤링 페이퍼 ⭐️"} />

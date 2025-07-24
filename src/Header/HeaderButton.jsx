@@ -3,9 +3,13 @@ import globalStyle from "./global.module.css";
 import headerButtonStyle from "./HeaderButton.module.css";
 import LogoImg from "/assets/header_logo_img.png";
 
-const HeaderButton = ({ isMake }) => {
+const HeaderButton = ({ isMake, isShow = false }) => {
   return (
-    <header className={globalStyle.header}>
+    <header
+      className={`${globalStyle.header} ${
+        !isShow && globalStyle["header-show"]
+      }`}
+    >
       <div>
         <Link to="/" className={globalStyle.logoLink}>
           <div className={globalStyle.logoBox}>

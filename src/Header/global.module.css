@@ -46,8 +46,10 @@
 /* 모바일 */
 @media (max-width: 360px) {
   .header {
-    display: none;
     gap: 60px;
     padding: 12px 20px;
+  }
+  .header-show {
+    display: none;
   }
 }
