@@ -5,7 +5,7 @@ import FontSelector from "./FontSelector";
 import SendMessageButton from "./SendMessageButton";
 import styles from "./SendMessagePage.module.css";
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import HeaderButton from "../../Header/HeaderButton";
 import ProfileImageSelector from "./ProfileImageSelector";
 import axios from "axios";
@@ -13,6 +13,7 @@ import axios from "axios";
 const SendMessagePage = ({ externalData, onSubmit }) => {
   const [messageData, setMessageData] = useState(null);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (externalData) {
@@ -49,6 +50,7 @@ const SendMessagePage = ({ externalData, onSubmit }) => {
         },
       }
     );
+    navigate(`/post/${id}`);
   };
 
   if (!messageData) return <div>로딩 중...</div>;

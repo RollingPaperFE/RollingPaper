@@ -4,6 +4,7 @@ import BestAndNewestListPage from "./pages/BestAndNewest/BestAndNewestListPage";
 import RollingPaperListPage from "./pages/RollingPaperList/RollingPaperListPage";
 import SendMessagePage from "./pages/SendRollingPaper/SendMessagePage";
 import RollingWrite from "./pages/RollingWrite/RollingWrite";
+import NotFound from "./pages/NotFound/NotFound";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path=":id" element={<RollingPaperListPage />} />
           <Route path=":id/message" element={<SendMessagePage />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

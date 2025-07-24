@@ -46,7 +46,7 @@ function RollingWrite() {
       console.log("서버 응답:", data);
 
       //성공 후 페이지 이동
-      navigate("../list");
+      navigate("/list");
 
       // 서버 응답 성공 후 처리(예: 입력 초기화, 알림 등)
       setText("");
