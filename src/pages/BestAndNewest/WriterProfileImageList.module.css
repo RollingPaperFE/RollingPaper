@@ -1,0 +1,42 @@
+.wrapped-profiles {
+  display: flex;
+  position: relative;
+  height: 30px;
+}
+
+.profile-img {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid var(--white);
+  border-radius: 50px;
+  background-color: var(--white);
+}
+
+.first-img {
+  left: 0;
+  z-index: 0;
+}
+
+.second-img {
+  left: 17px;
+  z-index: 1;
+}
+
+.third-img {
+  left: 34px;
+  z-index: 2;
+}
+
+.profile-count {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 40px;
+  width: 100%;
+  left: 51px;
+  z-index: 3;
+  border-radius: 30px;
+  color: var(--grayscale-500);
+  background-color: var(--white);
+}

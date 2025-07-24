@@ -1,0 +1,404 @@
+* {
+  box-sizing: border-box;
+}
+
+.iconHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ededed;
+  padding: 16px 70px;
+  height: 64px;
+  background-color: var(--white);
+}
+
+.name {
+  width: 227px;
+  height: 42px;
+  font-size: 28px;
+  color: #2b2b2b;
+  padding: 8px 8px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.dividerFirst,
+.dividerSecond {
+  width: 1px;
+  height: 28px;
+  background-color: #eeeeee;
+}
+
+.writersAvatar {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.writers {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.avatar {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 3px solid #fff;
+  margin-left: -12px;
+  z-index: 1;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.writersCount {
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 3;
+  margin-left: -6px;
+}
+
+.writersPlus {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border: 3px solid #e3e3e3;
+  border-radius: 50%;
+  color: #484848;
+  font-size: 12px;
+  margin-left: -8px;
+  z-index: 0;
+}
+
+.writersText {
+  font-size: 18px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.writersNum {
+  font-weight: 700;
+}
+
+.emojis {
+  display: flex;
+  gap: 10px;
+}
+
+.emojiItems {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: rgb(140, 140, 140);
+  border-radius: 32px;
+  color: white;
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+
+.toggleEmojiWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.toggleEmojiBox {
+  width: 312px;
+  height: 134px;
+  position: absolute;
+  top: 36px;
+  right: 0;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #b6b6b6;
+  z-index: 999;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+  padding: 16px 8px;
+}
+
+.toggleEmojiItems {
+  width: 63px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgb(140, 140, 140);
+  border-radius: 32px;
+  color: white;
+  padding: 6px 12px;
+}
+
+.addEmoji {
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #cccccc;
+  padding: 6px 16px;
+  cursor: pointer;
+  width: 88px;
+  height: 36px;
+  font-size: 16px;
+  color: #181818;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  position: static;
+  z-index: 1000;
+}
+
+.addEmoji:hover {
+  background-color: #f2f2f2;
+}
+
+.addEmoji img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.emojiPicker {
+  position: relative;
+  top: 250px;
+  right: 390px;
+  z-index: 999;
+}
+
+.shareWrapper {
+  width: 56px;
+  height: 36px;
+  cursor: pointer;
+  margin-top: 4px;
+  position: relative;
+}
+
+.shareUrl {
+  width: 140px;
+  height: 120px;
+  top: 121px;
+  right: 70px;
+  background-color: #ffffff;
+  position: absolute;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  z-index: 999;
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  place-items: center;
+}
+
+.shareUrlTitle {
+  color: #181818;
+  font-size: 16px;
+  padding: 16px 14px;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+}
+
+.shareUrlTitle:hover {
+  background-color: #f2f2f2;
+}
+
+.toast {
+  width: 524px;
+  height: 64px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 1);
+  font-size: 16px;
+  padding: 16px 30px;
+  gap: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: fixed;
+  z-index: 9999;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 태블릿 */
+@media (max-width: 768px) {
+  .writers {
+    display: none;
+  }
+
+  .right {
+    gap: 8px;
+  }
+
+  .iconHeader {
+    padding: 16px 20px;
+  }
+
+  .name {
+    width: auto;
+    font-size: 20px;
+    padding: 8px 4px;
+  }
+
+  .dividerFirst {
+    display: none;
+  }
+
+  .emojiItems {
+    width: 63px;
+    height: 36px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background-color: rgb(140, 140, 140);
+    border-radius: 32px;
+    color: white;
+    padding: 8px 12px;
+    white-space: nowrap;
+    font-size: 16px;
+  }
+
+  .toggleEmojiBox {
+    width: 248px;
+    height: 134px;
+    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+  }
+
+  .toggleEmojiItems {
+    width: 65px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(140, 140, 140);
+    border-radius: 32px;
+    color: white;
+    padding: 6px 12px;
+    font-size: 16px;
+  }
+
+  .shareUrl {
+    right: 30px;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 360px) {
+  .writers {
+    display: none;
+  }
+
+  .iconHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    gap: 8px;
+    padding: 12px 4px;
+  }
+
+  .name {
+    width: 100%;
+    height: 42px;
+    font-size: 20px;
+    color: #2b2b2b;
+    padding: 4px 12px;
+    border-bottom: 1px solid #ededed;
+  }
+
+  .right {
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .dividerFirst {
+    display: none;
+  }
+
+  .emojis {
+    flex-wrap: nowrap;
+    gap: 6px;
+    padding: 4px 12px;
+  }
+
+  .emojiItems {
+    width: 53px;
+    height: 28px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background-color: rgb(140, 140, 140);
+    border-radius: 32px;
+    color: white;
+    padding: 4px 8px;
+    white-space: nowrap;
+    font-size: 14px;
+  }
+
+  .toggleEmojiBox {
+    width: 203px;
+    height: 98px;
+    gap: 8px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+  }
+
+  .toggleEmojiItems {
+    width: 53px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background-color: rgb(140, 140, 140);
+    border-radius: 32px;
+    color: white;
+    padding: 4px 8px;
+    font-size: 14px;
+  }
+
+  .addEmoji {
+    width: 36px;
+    height: 32px;
+  }
+
+  .addEmoji img {
+    width: 23px;
+    height: 23px;
+  }
+
+  .addText {
+    display: none;
+  }
+
+  .shareWrapper {
+    width: 36px;
+    height: 32px;
+  }
+
+  .toast {
+    width: 320px;
+    height: 64px;
+  }
+}

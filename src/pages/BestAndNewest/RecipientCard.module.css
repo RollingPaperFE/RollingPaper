@@ -1,0 +1,182 @@
+.wrapped-card {
+  position: relative;
+  width: 275px;
+  height: 260px;
+}
+
+.card-link {
+  width: 275px;
+  height: 260px;
+  text-decoration: none;
+}
+
+.btn-container {
+  position: absolute;
+  width: 275px;
+  height: 260px;
+}
+
+.previous-btn,
+.next-btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  transform: translate(0, -50%);
+  border-radius: 20px;
+  border: 1px solid #dadcdf;
+  background-color: #ffffffe5;
+  z-index: 99;
+}
+
+.previous-btn {
+  left: -20px;
+}
+
+.next-btn {
+  right: -20px;
+}
+
+.bg-img,
+.bg-color,
+.card-container {
+  width: 275px;
+  height: 260px;
+  border: 1px solid #0000001a;
+  box-shadow: 0px 2px 12px #00000014;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.bg-img {
+  position: absolute;
+  background-color: black;
+  filter: brightness(50%);
+  z-index: -1;
+}
+
+.bg-color {
+  position: absolute;
+  z-index: 0;
+}
+
+.bg-beige {
+  background-color: var(--beige-200);
+}
+
+.bg-purple {
+  background-color: var(--purple-200);
+}
+
+.bg-blue {
+  background-color: var(--blue-200);
+}
+
+.bg-green {
+  background-color: var(--green-200);
+}
+
+.side-img {
+  position: absolute;
+  width: 142px;
+  height: 142px;
+  z-index: 1;
+  border-bottom-right-radius: 16px;
+  top: 118px;
+  left: 133px;
+}
+
+.card-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 24px;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.name-text {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.posted-count-text {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.name-text-img-version {
+  color: var(--white);
+}
+
+.posted-count-text-img-version {
+  color: var(--grayscale-200);
+}
+
+.name-text-color-version {
+  color: var(--black);
+}
+
+.posted-count-text-color-version {
+  color: var(--grayscale-700);
+}
+
+.card-emoji-container {
+  display: flex;
+  padding-top: 16px;
+  gap: 8px;
+  border-top: 1px solid #0000001f;
+}
+
+/* Mobile */
+@media (max-width: 360px) {
+  .wrapped-card,
+  .bg-img,
+  .bg-color,
+  .card-container,
+  .card-link,
+  .btn-container {
+    width: 208px;
+    height: 232px;
+  }
+
+  .side-img {
+    width: 107px;
+    height: 113px;
+    top: 118px;
+    left: 100px;
+  }
+
+  .name-text {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 28px;
+  }
+
+  .posted-count-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .previous-btn,
+  .next-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+  }
+
+  .previous-btn {
+    left: -15px;
+  }
+
+  .next-btn {
+    right: -15px;
+  }
+}
