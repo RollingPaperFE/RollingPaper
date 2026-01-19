@@ -1,7 +1,11 @@
+import { useRecipient } from "./useRecipient";
 import cardListStyle from "./RecipientCardList.module.css";
 import RecipientCard from "./RecipientCard";
 
-const RecipientCardList = ({ title, recipients, isLoading, error, handleMovePrevious, handleMoveNext }) => {
+const RecipientCardList = ({ title, sort }) => {
+  const results = useRecipient({ sort });
+  const { recipients, isLoading, error, handleMovePrevious, handleMoveNext } =
+    results;
 
   return (
     <div className={cardListStyle["card-list-container"]}>

@@ -1,63 +1,58 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { getRecipients } from "../../apis/recipientsListApi";
 
 const LIMIT = 4;
 
-export const useAllRecipients = () => {
-  const [bestData, setBestData] = useState({ recipients: [], offset: 0, isLoading: false });
-  const [newestData, setNewestData] = useState({ recipients: [], offset: 0, isLoading: false });
+export const useRecipient = ({ sort }) => {
+  const [recipients, setRecipients] = useState([]);
+  const [offset, setOffset] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // 개별 데이터를 로드하는 함수
-  const loadData = useCallback(async (sort, offset, setter) => {
+  const handleLoad = async (options) => {
+    let data;
     try {
-      setter((prev) => ({ ...prev, isLoading: true }));
-      const data = await getRecipients({ limit: LIMIT, offset, sort });
-      
-      const { results, next, previous } = data;
-      // 기존 코드의 next/previous 로직 유지
-      if (previous && results.length > 0) results[0].previous = previous;
-      if (next && results.length > 0) results[results.length - 1].next = next;
-
-      setter((prev) => ({ ...prev, recipients: results, isLoading: false }));
-    } catch (err) {
-      setError(err);
-      setter((prev) => ({ ...prev, isLoading: false }));
+      setIsLoading(true);
+      data = await getRecipients(options);
+    } catch (error) {
+      setError(error);
+      return;
+    } finally {
+      setIsLoading(false);
     }
-  }, []);
+    const { results, next, previous } = data;
 
-  // 초기 로딩 (병렬 처리)
-  useEffect(() => {
-    // Promise.all을 사용해 두 요청을 동시에 시작
-    Promise.all([
-      loadData("like", bestData.offset, setBestData),
-      loadData("", newestData.offset, setNewestData)
-    ]);
-  }, []);
+    if (previous) {
+      results[0].previous = previous;
+    }
+    if (next) {
+      results[results.length - 1].next = next;
+    }
 
-  // 오프셋 변경 감지 (페이지네이션)
-  useEffect(() => {
-    loadData("like", bestData.offset, setBestData);
-  }, [bestData.offset, loadData]);
-
-  useEffect(() => {
-    loadData("", newestData.offset, setNewestData);
-  }, [newestData.offset, loadData]);
-
-  // 핸들러 함수들
-  const handleMoveBest = (direction) => {
-    setBestData(prev => ({ ...prev, offset: direction === 'next' ? prev.offset + 1 : prev.offset - 1 }));
+    setRecipients(results);
   };
 
-  const handleMoveNewest = (direction) => {
-    setNewestData(prev => ({ ...prev, offset: direction === 'next' ? prev.offset + 1 : prev.offset - 1 }));
+  const handleMovePrevious = () => {
+    setOffset(offset - 1);
   };
+
+  const handleMoveNext = () => {
+    setOffset(offset + 1);
+  };
+
+  useEffect(() => {
+    handleLoad({
+      limit: LIMIT,
+      offset,
+      sort,
+    });
+  }, [offset, sort]);
 
   return {
-    bestData,
-    newestData,
+    handleMovePrevious,
+    handleMoveNext,
+    recipients,
+    isLoading,
     error,
-    handleMoveBest,
-    handleMoveNewest
   };
 };
